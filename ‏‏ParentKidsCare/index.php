@@ -2,11 +2,10 @@
 <html class="loading" lang="en" data-textdirection="rtl">
 
 <?php 
-include 'Templates\DB.php';
+include ('Templates/DB.php');
+include ('Templates/head.php');
 ?>
-<?php 
-include 'Templates\head.php';
-?>
+
 <title>KidsCare-Login</title>
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
@@ -26,7 +25,7 @@ include 'Templates\head.php';
                                         <img src="../app-assets/images/logo/logo.png" alt="branding logo">
                                     </div>
                                     <div class="font-large-1  text-center">
-                                       התחברות
+                                      התחברות כהורה
                                     </div>
                                 </div>
                                 <div class="card-content">
@@ -61,6 +60,8 @@ include 'Templates\head.php';
                                 
 
                                     <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span>אינך רשום לגן? <a href="registerForm.php" class="card-link">הירשם כאן</a></span></p>
+                                                                        <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span>שכחת את הסיסמה? <a href="passwordReset.php" class="card-link">לחץ כאן</a></span></p>
+
                                 </div>
                             </div>
                         </div>
@@ -73,7 +74,7 @@ include 'Templates\head.php';
     <!-- END: Content-->
 
     <?php
-     include 'Templates\JS.php';
+     include ('Templates/JS.php');
      ?>
 
 

@@ -4,7 +4,7 @@
 <!-- BEGIN: Head-->
 
 <?php
-     include 'Templates\head.php';
+     include ('Templates/head.php');
      ?>
 
     <title>KidsCare-Details</title>
@@ -34,25 +34,8 @@
                                     <h1 class ="text-center">
 
                                     <?php
-                                     include 'Templates\DB.php';
-                                        
-
- $target_dir = "../uploads/";
- $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
- $uploadOk = 1;
- $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
- // Check if image file is a actual image or fake image
- if(isset($_POST["submit"])) {
-     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-     if($check !== false) {
-         $uploadOk = 1;
-     } else {
-         $uploadOk = 0;
-     }
- }
-
- if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
-                                                       
+                                     include ('Templates/DB.php');
+                                       
                               
                                     $sql = "UPDATE `accounts` 
                                     SET 
@@ -62,9 +45,8 @@
                                     phone1 = '".$_POST["phone1"]."', parentName2 = '".$_POST["parentName2"]."',
                                     phone2= '".$_POST["phone2"]."', address= '".$_POST["address"]."',
                                     allergies= '".$_POST["allergies"]."',
-                                    medicines=  '".$_POST["medicines"]."',
-                                    fileToUpload='". basename($_FILES["fileToUpload"]["name"])."'
-                                  WHERE username='".$_SESSION['name']."'";
+                                    medicines=  '".$_POST["medicines"]."'
+                                     WHERE username='".$_SESSION['name']."'";
         
                                  
                                     if ($conn->query($sql)==FALSE){
@@ -95,7 +77,7 @@
     <!-- END: Content-->
 
     <?php
-     include 'Templates\JS.php';
+     include ('Templates/JS.php');
      ?>
 
 </body>

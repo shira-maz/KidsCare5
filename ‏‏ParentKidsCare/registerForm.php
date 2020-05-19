@@ -2,10 +2,18 @@
 <html class="loading" lang="en" data-textdirection="rtl">
 
 <?php 
-include 'Templates\head.php';
+include ('Templates/head.php');
 ?>
 
+<style>
+  .required:after {
+    content:" *";
+    color: red;
+  }
+</style>
+
 <title>KidsCare-Register</title>
+<script src="registrationFormValidation.js"></script>
 
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image " data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
@@ -30,40 +38,42 @@ include 'Templates\head.php';
                             <div class="card">
                                 <form method="post" action="register.php" name="accounts" onsubmit="return registrationFormValidation();" autocomplete="on" enctype="multipart/form-data">
                                 <div class=form-group row>
-                                <label class="col-xl-3">שם משתמש</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="username" required >
+                                <label class="col-xl-3 required">שם משתמש</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="username" required >
                                 <P class="text-center" style = "margin-right:10%; margin-top:3%; font-size: 1rem "> אנא הזן אותיות באנגלית בלבד</P></div>
                                 <div class=form-group row>
-                                    <label class="col-xl-3">סיסמה</label><input type="password" name="password" class="form-control round col-md-8" style ="display: inline-block" required >	</div>
+                                    <label class="col-xl-3 required">סיסמה</label><input type="password" name="password" class="form-control round col-md-8" style ="display: inline-block" required >	</div>
+                                    <div class=form-group row>
+                                    <label class="col-xl-3 required">אימות סיסמה</label><input type="password" name="confirmationPassword" class="form-control round col-md-8" style ="display: inline-block" required >	</div>
                                 <div class=form-group row>
-                                <label class="col-xl-3">אימייל</label><input type="email"  class="form-control round col-md-8" style ="display: inline-block" name="email" required></div>
+                                <label class="col-xl-3 required">אימייל</label><input type="email"  class="form-control round col-md-8" style ="display: inline-block" name="email" required></div>
                                 <div class=form-group row>
-                                <label class="col-xl-3">שם מלא</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="fullName" required ></div>	
+                                <label class="col-xl-3 required">שם מלא</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="fullName" required ></div>	
                                 <div class=form-group row>				
                                 <label class="col-xl-3">ת.ז</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="idNum" required ></div>
                                 <div class=form-group row>
-                                    <label class="col-xl-3">מין</label>
-                                <input type="radio"  style ="display: inline-block" name="gender" value="זכר" checked required ><label > זכר</label>
+                                    <label class="col-xl-3 required">מין</label>
+                                <input type="radio"   style ="display: inline-block" name="gender" value="זכר" checked required ><label > זכר</label>
                                 <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" checked required ><label> נקבה</label>
                                 </div>
                                 <div class=form-group row>
-                                <label class="col-xl-3">תאריך לידה</label><input type="date" class="form-control round col-md-8" style ="display: inline-block" name="birthday" required ></div>
+                                <label class="col-xl-3 required">תאריך לידה</label><input type="date" class="form-control round col-md-8" style ="display: inline-block" name="birthday" required ></div>
                                 <div class=form-group row>	
-                                <label class="col-xl-3">שם האב</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="parentName1" required ></div>
+                                <label class="col-xl-3 required">שם האב</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="parentName1" required ></div>
                                 <div class=form-group row>
-                                <label class="col-xl-3">מספר טלפון</label><input type="numbers"  class="form-control round col-md-8" style ="display: inline-block" name="phone1" required >	</div>
+                                <label class="col-xl-3 required">מספר טלפון</label><input type="numbers"  class="form-control round col-md-8" style ="display: inline-block" name="phone1" required >	</div>
                                 <div class=form-group row>
-                                <label class="col-xl-3">שם האם</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="parentName2" required ></div>
+                                <label class="col-xl-3 required">שם האם</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="parentName2" required ></div>
                                 <div class=form-group row>
-                                 <label class="col-xl-3">מספר טלפון</label><input type="numbers" class="form-control round col-md-8" style ="display: inline-block" name="phone2" required ></div>
+                                 <label class="col-xl-3 required">מספר טלפון</label><input type="numbers" class="form-control round col-md-8" style ="display: inline-block" name="phone2" required ></div>
                                  <div class=form-group row>	
-                                    <label class="col-xl-3">כתובת</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="address" required ></div>
+                                    <label class="col-xl-3 required">כתובת</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="address" required ></div>
                                  <div class=form-group row>
                                 <label class="col-xl-3">אלרגיות</label><textarea  class="form-control round col-md-8" style ="display: inline-block" name="allergies"  ></textarea></div>
                                 <div class=form-group row>
                                 <label class="col-xl-3">תרופות</label><textarea  class="form-control round col-md-8" style ="display: inline-block" name="medicines"  ></textarea></div>
                                 <div></div>
                                 <label class="col-xl-3" style = "margin-bottom:3%">העלה תמונה</label>
-                                <input  type="file"  name="fileToUpload" id="fileToUpload" /> <br>
+                                <input  type="file"  name="fileToUpload" id="fileToUpload" required  /> <br>
                                 <P class="text-center" style = "margin-left:10%; margin-top:3%; font-size: 1rem "> מומלץ להעלות תמונה מרובעת</P>
                                 <input type="hidden" name="status" value="3" hide >
                                 <div class="form-actions center">
@@ -78,7 +88,7 @@ include 'Templates\head.php';
     <!-- END: Content-->
 
     <?php 
-include 'Templates\js.php';
+include ('Templates/JS.php');
 ?>
 </body>
 </html>

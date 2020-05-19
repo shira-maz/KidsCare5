@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
-<?php 
-include 'Templates\head.php';
+<?php
+include ('Templates/DB.php');
+include ('Templates/head.php');
 ?>
 <title>KidsCare-Home</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
    
 <?php 
-include 'Templates\menu.php';
+include ('Templates/menu.php');
 ?>
 	
  <!-- BEGIN: Content-->
@@ -67,8 +68,8 @@ include 'Templates\menu.php';
    <!-- END: Content-->
 
  <?php
-     include 'Templates\footer.php';
-     include 'Templates\JS.php';
+     include ('Templates/footer.php');
+     include ('Templates/JS.php');
      ?>
 
 
