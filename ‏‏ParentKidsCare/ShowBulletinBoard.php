@@ -37,7 +37,7 @@ include ('Templates/head.php');
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">מודעות אחרונות</h4>
+                                
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -57,13 +57,13 @@ include ('Templates/head.php');
                                                     <!--Profile Card-->
 
                                                     <?php
-                                                    $sql = "SELECT title, text, date FROM notes ORDER BY date;";
+                                                    $sql = "SELECT title, text, date FROM notes ORDER BY date DESC";
                                                     $result1 = $conn->query($sql);
                                                     $conn->close();
                                                 if ($result1->num_rows > 0) {
                                                     while ($row = $result1->fetch_assoc()) { ?>
 
-                                                    <div class="col-md-4 mt-4">
+                                                     <div class="col-sm-7 col-xs-5 col-md-6 col-xl-4 mt-3">
                                                         <ul class="ul-notes">
                                                             <li class="li-notes">
                                                             <a class="a-notes" href="#">

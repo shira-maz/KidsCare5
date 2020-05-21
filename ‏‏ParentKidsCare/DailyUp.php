@@ -29,7 +29,7 @@ td, th {
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">דיווחים קודמים</h3>
+                    <h3 class="content-header-title">עדכוני שינה וארוחות</h3>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ td, th {
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">דיווחי שינה וארוחות</h4>
+                                  
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -73,6 +73,7 @@ td, th {
 
                                        <h4 style ="margin-bottom:3%; color:black;  font-weight: bold;" > נכון לתאריך  <?= $date1 ?> </h4>
                                       
+                                           
                                         <?php 
                                             while ($row3D = $resD->fetch_assoc()) { ?>
                                            
@@ -150,21 +151,12 @@ td, th {
     </div>
     </div>
 
-<!-- END: Content-->
 
     <?php 
-include 'Templates\footer.php';
-include 'Templates\JS.php';
+include ('Templates/footer.php');
+include ('Templates/JS.php');
 ?>
 
 </body>
 
-<Script> 
-                                           var x = function convertDigitIn (05-07-2013);
-                                            document.getElementById("demo").innerHTML = x;
- 
-                                            function convertDigitIn(str){
-                                            return str.split('/').reverse().join('/');}
-                                           
-                                           </Script>
 </html>

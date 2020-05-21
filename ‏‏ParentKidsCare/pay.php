@@ -17,7 +17,7 @@ include ('Templates/menu.php');
         <div class="content-wrapper-before"></div>
         <div class="content-header row">
             <div class="content-header-left col-md-4 col-12 mb-2">
-                <h3 class="content-header-title">דף הבית</h3>
+                <h3 class="content-header-title">תשלומים לגן</h3>
             </div>
         </div>
 
@@ -27,7 +27,7 @@ include ('Templates/menu.php');
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">תשלומים לגן</h4>
+                                <h4 class="card-title">שלם לגן</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -41,7 +41,7 @@ include ('Templates/menu.php');
                                 <div class="card-body">
 	                                    <section>
 										<div class="container"> 
-                                        <?php
+                                          <?php
                                         $total = 20000;
                                         $sumquery ="SELECT SUM(payment_amount) AS value_sum FROM payments WHERE custom = '$username1'";
                                         mysqli_query($conn, $sumquery) or die('Error querying database.');
@@ -65,16 +65,16 @@ include ('Templates/menu.php');
 
                                         <?php 
                                         if ( $count>0 ) {
-                                            echo nl2br("עד כה, שולם לגן  ₪ $paid\n ב-  $count תשלומים\n");
+                                            echo nl2br("עד כה, שולם לגן $paid ₪ \n ב-  $count תשלומים\n");
 
                                         }
 
                                         else {
-                                            echo  "עד כה לא בוצע אף תשלום לגן";
+                                            echo  nl2br("עד כה לא בוצע אף תשלום לגן.\n");
                                         }
+                                        ?>
+                                        
 
-?>
-<br>
                                         יתרת תשלום נוכחית -   ₪<?= $nowtotal ?><br><br>
                                         לחץ כדי לשלם את תשלום מספר <?=  $next ?> על סך ₪<?=  $splittotal ?> 
 

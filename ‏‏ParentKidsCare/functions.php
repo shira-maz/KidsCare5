@@ -1,4 +1,6 @@
 <?php
+include ('Templates/DB.php');
+include ('Templates/menu.php');
 
 /**
  * Verify transaction is authentic
@@ -75,23 +77,25 @@ function addPayment($data) {
 	global $db;
 
 	if (is_array($data)) {
-		$stmt = $db->prepare('INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES(?, ?, ?, ?, ?)');
+		$stmt = $db->prepare('INSERT INTO `payments` (txnid, payment_amount, payment_status, custom, itemid, createdtime) VALUES(?, ?, ?, ?, ?,  ?)');
 		$stmt->bind_param(
-			'sdsss',
+			'sdssss',
 			$data['txn_id'],
 			$data['payment_amount'],
 			$data['payment_status'],
+			$data['custom'],
 			$data['item_number'],
-			date('Y-m-d H:i:s')
-		);
-
-		$sql = "UPDATE payments SET custom='jojo' WHERE txnid='1HL871346R7225711'";
-
+			date('Y-m-d')
+	);
 		$stmt->execute();
 		$stmt->close();
 
 		return $db->insert_id;
+		
 	}
 
 	return false;
 }
+
+
+		

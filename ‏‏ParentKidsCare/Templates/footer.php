@@ -1,10 +1,7 @@
 
-
-    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow" style="position: fixed; bottom: 0; width: 100%;" >
         <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">2020 &copy; KidsCare </span>
-            <ul class="list-inline float-md-right d-block d-md-inline-blockd-none d-lg-block mb-0">
-                <li class="list-inline-item"><a class="my-1" href="#" target="_blank"> Support</a></li>
-            </ul>
+     
         </div>
     </footer>
     

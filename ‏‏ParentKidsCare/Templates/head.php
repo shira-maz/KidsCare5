@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/css-rtl/components.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css-rtl/custom-rtl.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css-rtl/card.css">
-    <link rel="stylesheet" type="text/css" href="../app-assets/css-rtl/notes.css">
+     <link rel="stylesheet" type="text/css" href="../app-assets/css-rtl/notes.css">
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
@@ -30,7 +30,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../app-assets/css/style-rtl.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style-rtl.css">
     <!-- END: Custom CSS-->
 
 </head>

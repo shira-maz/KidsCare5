@@ -2,8 +2,9 @@
 <html class="loading" lang="en" data-textdirection="rtl">
 
 <?php
-     include ('Templates\head.php');
-     ?>
+     include ('Templates/head.php');
+ ?>
+ 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
     <!-- BEGIN: Content-->
     <div class="app-content content">
@@ -43,7 +44,7 @@
     </div>
     <!-- END: Content-->
     <?php
-     include ('Templates\JS.php');
+     include ('Templates/JS.php');
       ?>
    
 

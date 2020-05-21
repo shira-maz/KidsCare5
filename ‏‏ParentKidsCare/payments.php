@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // For test payments we want to enable the sandbox mode. If you want to put live
 // payments through then this setting needs changing to `false`.
@@ -6,11 +7,12 @@ $enableSandbox = true;
 
 // Database settings. Change these for your database configuration.
 $dbConfig = [
-	'host' => 'localhost',
-	'username' => 'isshiramt',
-	'password' => 'Aa123456',
-	'name' => 'isshiram_kidsCare'
+	'host' => "localhost",
+	'username' => "isshiramt",
+	'password' => "Aa123456",
+	'name' => "isshiram_kidsCare"
 ];
+
 
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.
@@ -21,11 +23,12 @@ $paypalConfig = [
 	'notify_url' => 'http://isshiramt.mtacloud.co.il/kidsCare/ParentKidsCare/payments.php'
 ];
 
+
 $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
 
 // Product being purchased.
-$itemName = 'תשלום חודשי';
-$itemAmount = 2500.00;
+$itemName = 'Monthly payment';
+$itemAmount = 2000.00;
 
 // Include Functions
 require 'functions.php';
@@ -43,6 +46,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 
 	// Set the PayPal account.
 	$data['business'] = $paypalConfig['email'];
+
 	// Set the PayPal return addresses.
 	$data['return'] = stripslashes($paypalConfig['return_url']);
 	$data['cancel_return'] = stripslashes($paypalConfig['cancel_url']);
@@ -55,9 +59,8 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	$data['currency_code'] = 'ILS';
 
 	// Add any custom fields for the query string.
-	//$USERID = $_SESSION["name"];
-	//$data['custom'] = $USERID;
-
+	$data['custom'] = $username1;
+	
 	// Build the query string from the data.
 	$queryString = http_build_query($data);
 

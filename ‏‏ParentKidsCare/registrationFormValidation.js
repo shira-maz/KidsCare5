@@ -1,6 +1,7 @@
-﻿function registrationFormValidation() {
+function registrationFormValidation() {
   var username = document.accounts.username;
   var password = document.accounts.password;
+  var confirmationPassword = document.accounts.confirmationPassword;
   var email = document.accounts.email;
   var fullName = document.accounts.fullName;
   var idNum = document.accounts.idNum;
@@ -10,24 +11,39 @@
   var phone2 = document.accounts.phone2;
   var letters = /^[0-9a-zA-Z]+$/;
 
-  if (username.value == "") {
-    window.alert("אנא הקלד את שם המשתמש באותיות אנגלית בלבד");
-    username.focus();
-    return false;
-  }
-  if (!username.value.match(letters)) {
+  if (username.value === "") {
     window.alert("אנא מלא את שם המשתמש");
     username.focus();
     return false;
   }
+  if (!username.value.match(letters)) {
+    window.alert("אנא הקלד את שם המשתמש באותיות אנגלית בלבד");
+    username.focus();
+    return false;
+  }
 
-  if (password.value == "") {
+  if (password.value === "") 
+  {
     window.alert("אנא הקלד סיסמה");
     password.focus();
     return false;
   }
+  
+  if (confirmationPassword.value === "") 
+    {
+    window.alert("אנא הקלד אימות סיסמה");
+    password.focus();
+    return false;
+    }
+    
+    if (password.value !== confirmationPassword.value)
+    {
+    window.alert("סיסמאות אינן תואמות, אנא נסה בשנית");
+    password.focus();
+    return false;
+    }
 
-  if (email.value == "") {
+  if (email.value === "") {
     window.alert("אנא הקלד כתובת אימייל חוקית");
     email.focus();
     return false;
@@ -43,7 +59,7 @@
     return false;
   }
 
-  if (fullName.value == "") {
+  if (fullName.value === "") {
     window.alert("אנא מלא את שמו המלא של ילדך");
     fullName.focus();
     return false;
@@ -55,13 +71,13 @@
     return false;
   }
 
-  if (idNum.value == "") {
+  if (idNum.value === "") {
     window.alert("אנא מלא את תעודת הזהות של ילדך");
     idNum.focus();
     return false;
   }
 
-  if (parentName1.value == "") {
+  if (parentName1.value === "") {
     window.alert("אנא מלא את שם האב");
     parentName1.focus();
     return false;
@@ -73,7 +89,7 @@
     return false;
   }
 
-  if (parentName2.value == "") {
+  if (parentName2.value === "") {
     window.alert("אנא מלא את שם האם");
     parentName2.focus();
     return false;
