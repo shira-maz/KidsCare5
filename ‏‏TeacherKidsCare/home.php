@@ -1,14 +1,12 @@
-<?php
-include 'Templates\DB.php';
-
-    $sql = "SELECT fullName, fileToUpload, username FROM accounts where status='1'";
-    $result1 = $conn->query($sql);
-    $conn->close();
+<?php 
+include 
+('Templates/DB.php');
 ?>
 
 
+
 <?php 
-include 'Templates\head.php';
+include ('Templates/head.php');
 ?>
 <title>KidsCare-Home</title>
 
@@ -20,7 +18,7 @@ include 'Templates\head.php';
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
 
     <?php 
-    include 'Templates\menu.php';
+    include ('Templates/menu.php');
     ?>
 
 
@@ -59,20 +57,26 @@ include 'Templates\head.php';
                                                     <!--Profile Card-->
 
                                                     <?php
+                                                    $sql = "SELECT fullName, fileToUpload, username FROM accounts WHERE status='1'";
+
+                                                    $result1 = $conn->query($sql);
+                                                    $conn->close();
                                                 if ($result1->num_rows > 0) {
                                                     while ($row = $result1->fetch_assoc()) { ?>
 
                                                     <div class="col-md-4 mt-4">
                                                         <div class="card profile-card-4">
                                                             <div class="card-body pt-5">
+                                                             <a
+                                                                        href="KidDetails.php?username=<?= $row['username'] ?>">  
                                                                 <img alt="profile-image" class="profile"
                                                                     src="../uploads/<?= $row['fileToUpload'] ?>" />
+                                                                    </a>
                                                                 <h5 class="card-title text-center"> <a
                                                                         href="KidDetails.php?username=<?= $row['username'] ?>">
                                                                         <?= $row['fullName'] ?> </a></h5>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                     <?php }
                                                 }
@@ -95,9 +99,9 @@ include 'Templates\head.php';
 
 <!-- END: Content-->
 
-    <?php 
-include 'Templates\footer.php';
-include 'Templates\JS.php';
+<?php 
+include ('Templates/footer.php');
+include ('Templates/JS.php');
 ?>
 
 </body>

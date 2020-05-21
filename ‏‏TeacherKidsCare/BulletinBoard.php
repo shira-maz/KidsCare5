@@ -49,7 +49,7 @@ include ('Templates/menu.php');
                                                     while ($row = $result1->fetch_assoc()) { ?>
 
                                                       <div class="col-sm-7 col-xs-5 col-md-6 col-xl-4 mt-3">
-                                                    <form method="post" action="deleteNote.php">
+                                                    <form method="post" action="deleteNote.php" onSubmit="return confirm('למחוק את המודעה?')">
                                                         <ul class="ul-notes">
                                                             <li class="li-notes">
                                                             <input name=title value= "<?= $row['title'] ?>" hidden>
@@ -108,6 +108,9 @@ include ('Templates/menu.php');
         document.getElementById('newN').style.display='none';
     
                  }
+
+
+               
                
 </script>
 <?php 

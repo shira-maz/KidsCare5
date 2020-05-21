@@ -1,5 +1,5 @@
 <?php
-include 'Templates\DB.php';
+include ('Templates/DB.php');
 ?>
 
 <!DOCTYPE html>
@@ -7,14 +7,14 @@ include 'Templates\DB.php';
 <!-- BEGIN: Head-->
 
 <?php 
-include 'Templates\head.php';
+include ('Templates/head.php');
 ?>
 <title>KidsCare-Registration</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
     <?php 
-include 'Templates\menu.php';
+include ('Templates/menu.php');
 ?>
 
   
@@ -60,8 +60,11 @@ include 'Templates\menu.php';
                                                     <div class="col-md-4 mt-4">
                                                         <div class="card profile-card-4">
                                                             <div class="card-body pt-5">
+                                                                <a
+                                                                        href="KidRegistration.php?username=<?= $row['username'] ?>">
                                                                 <img alt="profile-image" class="profile"
                                                                     src="../uploads/<?= $row['fileToUpload'] ?>" />
+                                                                    </a>
                                                                 <h5 class="card-title text-center"> <a
                                                                         href="KidRegistration.php?username=<?= $row['username'] ?>">
                                                                         <?= $row['fullName'] ?> </a></h5>
@@ -139,8 +142,8 @@ include 'Templates\menu.php';
     <!-- END: Content-->
 
     <?php 
-include 'Templates\footer.php';
-include 'Templates\JS.php';
+include ('Templates/footer.php');
+include ('Templates/JS.php');
 ?>
 
 </body>

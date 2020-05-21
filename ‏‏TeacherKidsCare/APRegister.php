@@ -2,7 +2,7 @@
 <html class="loading" lang="en" data-textdirection="rtl">
 
 <?php 
-include 'Templates\head.php';
+include ('Templates/head.php');
 ?>
 <title>KidsCare-Register</title>
 
@@ -31,7 +31,7 @@ include 'Templates\head.php';
                                     <div class="card-body">
                                         <h1 class="text-center">
                                             <?php
-                                            include 'Templates\DB.php';
+                                            include ('Templates/DB.php');
                                     if ($_POST['action'] == 'Approve') {
                                         $sql = "UPDATE `accounts` 
                                         SET 
@@ -82,7 +82,7 @@ include 'Templates\head.php';
    <!-- END: Content-->
 
    <?php 
-include 'Templates\JS.php';
+include ('Templates/JS.php');
 ?>
 </body>
 </html>
