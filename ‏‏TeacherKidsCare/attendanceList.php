@@ -9,7 +9,7 @@ $date1 =date("Y-m-d");
 <!-- BEGIN: Head-->
 
 
-<title>KidsCare-</title>
+<title>KidsCare-Attendance List </title>
 
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
@@ -115,6 +115,8 @@ $date1 =date("Y-m-d");
                                                  ?>
                                        
                                             </table>
+                                                                                        <input type="button" onclick="location.href = 'attendanceDone.php';" value = "עדכן" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">                              
+
                                             </div>
                                     </div>
                                 </div>

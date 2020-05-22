@@ -1,21 +1,6 @@
 
 <?php
- error_reporting(0);
- $servername = "localhost";
- $username = "root";
- $password = "";
- $dbname = "phplogin";
-
- // Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
-
- // Check connection
- if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
- }
-
- if (!$conn->set_charset("utf8")) { printf("Error loading character set utf8: %s\n", $conn->error); exit();}
-
+include ('Templates/DB.php');
                                 
 $date1 =date("Y-m-d");
 $username1 = $_POST["username"];
@@ -33,9 +18,7 @@ if ($_POST['sleep'] == '1') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
+     
 } 
 
 if ($_POST['sleep'] == '2') {
@@ -48,9 +31,7 @@ if ($_POST['sleep'] == '2') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
+    
 
 } 
 if ($_POST['sleep'] == '3') {
@@ -63,10 +44,7 @@ if ($_POST['sleep'] == '3') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
-
+     
 } 
 
 if ($_POST['sleep'] == '4') {
@@ -79,9 +57,7 @@ if ($_POST['sleep'] == '4') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
+      
 
 } 
 
@@ -97,9 +73,7 @@ if ($_POST['food'] == '1') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
+      
 } 
 
 if ($_POST['food'] == '2') {
@@ -112,10 +86,7 @@ if ($_POST['food'] == '2') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
-
+     
 } 
 
 if ($_POST['food'] == '3') {
@@ -128,26 +99,20 @@ if ($_POST['food'] == '3') {
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
-
+     
 } 
 
 if ($_POST['food'] == '4') {
     $sql = "UPDATE  `attendance` 
     SET 
-    FoodStatus = 'little'
+    FoodStatus = 'not eat'
     WHERE username =  '".$_POST["username"]."' AND date = CURDATE()";
     
     if ($conn->query($sql)==FALSE){
             echo "Error ".
             $conn->error;
         }
-        else{
-             header("Location:DailyUpdate.php");
-            }
-
+       
 } 
 
 

@@ -330,7 +330,7 @@ label{
                                             <div class="container">
                                             <h5> <b> הליכה וריצה </b></h5>
                                             <label>  <input type = "radio" value="בהתאם לגיל" name="movement1" required <?php if (isset ($row4['movement1']) && $row4['movement1'] == "בהתאם לגיל" ) { echo 'checked';}?>> בהתאם לגיל &nbsp; </label>                         
-                                            <label>  <input type = "radio"  value="מתקשה" name="movement1" <?php if (isset ($row4['movement1']) && $row4['movement1'] == "מתקשה" ) { echo 'checked';}?>> מתקשה &nbsp; </label>  
+                                            <label>  <input type = "radio"   value="מתקשה" name="movement1" <?php if (isset ($row4['movement1']) && $row4['movement1'] == "מתקשה" ) { echo 'checked';}?>> מתקשה &nbsp; </label>  
                                             <label>  <input type = "radio"  value="מתקשה מאוד" name="movement1"  <?php if (isset ($row4['movement1']) && $row4['movement1'] == "מתקשה מאוד" ) { echo 'checked';}?>> מתקשה מאוד &nbsp; </label>  
                                             <label>  <input type = "radio"  value="נמנע/ת" name="movement1"  <?php if (isset ($row4['movement1']) && $row4['movement1'] == "נמנע/ת" ) { echo 'checked';}?>> נמנע/ת &nbsp; </label>  
                                             </div>

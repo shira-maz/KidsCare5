@@ -62,20 +62,20 @@ $row = mysqli_fetch_array($result);
                            </span></a>
                     <ul class="menu-content">
                         <li class="navigation-divider"></li>
-                        <li><a class="menu-item" href="#">רשימת נוכחות</a>
+                        <li><a class="menu-item" href="attendanceList.php">רשימת נוכחות</a>
                         </li>
-                        <li><a class="menu-item" href="#">שינה וארוחות</a>
+                        <li><a class="menu-item" href="DailyUpdate.php">שינה וארוחות</a>
                         </li>
-                        <li><a class="menu-item" href="#">צפייה בדיווחים קודמים</a>
+                        <li><a class="menu-item" href="PreviousDailyUp.php">צפייה בדיווחים קודמים</a>
                         </li>
                     </ul>
                 </li>
            
 
-                <li class=" nav-item"><a href="#.php"><i class="ft-file-text"></i><span class="menu-title"
+                <li class=" nav-item"><a href="Payments.php"><i class="ft-file-text"></i><span class="menu-title"
                             data-i18n="">תשלומים</span></a>
                 </li>
-                <li class=" nav-item"><a href="#.php"><i class="ft-message-circle"></i><span class="menu-title"
+                <li class=" nav-item"><a href="BulletinBoard.php"><i class="ft-message-circle"></i><span class="menu-title"
                             data-i18n="">לוח מודעות</span></a>
                 </li>
                 
@@ -83,9 +83,9 @@ $row = mysqli_fetch_array($result);
                             התפתחות</span></a>
                     <ul class="menu-content">
                         <li class="navigation-divider"></li>
-                        <li><a class="menu-item" href="#.php">מילוי דוח</a>
+                        <li><a class="menu-item" href="kidsForReports.php">מילוי דוח</a>
                         </li>
-                        <li><a class="menu-item" href="#.php">צפייה בדוחות קודמים</a>
+                        <li><a class="menu-item" href="previousReports.php">צפייה בדוחות קודמים</a>
                         </li>
                     </ul>
                 </li>

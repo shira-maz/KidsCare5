@@ -1,5 +1,5 @@
 <?php
-include 'Templates\DB.php';
+include ('Templates/DB.php');
 $username1 = $_GET["username"]; 
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
@@ -12,15 +12,15 @@ $kidUser=$row2['username'];
 <html class="loading" lang="en" data-textdirection="rtl">
 
 <?php 
-include 'Templates\head.php';
+include ('Templates/head.php');
+include ('Templates/menu.php');
 ?>
+
 <title>KidsCare-Kid Paynents</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-    <?php 
-    include 'Templates\menu.php';
-    ?>
+  
 
     <!-- BEGIN: Content-->
     <div class="app-content content">
@@ -52,24 +52,24 @@ include 'Templates\head.php';
 
                                 <div class="content-wrapper">
 
-<div class="content-body">
-    <section class="flexbox-container">
-        <div class="col-12 d-flex align-items-center justify-content-center">
+                                    <div class="content-body">
+                                        <section class="flexbox-container">
+                                            <div class="col-12 d-flex align-items-center justify-content-center">
 
-            <div class="card col-12 border-grey border-lighten-3 px-1 py-1 m-0">
-                <div class="card-content" style="margin-top:7%;">
-                    <div class="row justify-content-md-center">
+                                                <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
+                                                    <div class="card-content" style="margin-top:7%;">
+                                                        <div class="row justify-content-md-center">
 
-                        <div class="card ">
-                            <div class="card profile-card-4">
-                                <div class="card-body pt-5">
+                                                            <div class="card">
+                                                                <div class="card profile-card-4">
+                                                                    <div class="card-body pt-5">
                                                                         <img alt="profile-image" class="profile"
                                                                             src="../uploads/<?= $row2['fileToUpload'] ?>" />
                                                                         <h5 class="card-title text-center">
                                                                             <?= $row2['fullName'] ?> </h5>
                                                                     </div>
 
-                                                              
+                                                           
                                                                     <!-- Task List table -->
                                         <div class="table-responsive">
                                             <table id="users-contacts" class="table table-white-space table-bordered table-striped row-grouping display no-wrap icheck table-middle">
@@ -79,9 +79,16 @@ include 'Templates\head.php';
                                                 <th>סכום</th>
                                                 <th>תאריך תשלום</th>
                                             </tr>
+                                            
                                             <?php
+                                            $total =0;
                                             $query1 ="SELECT txnid, createdtime, payment_amount FROM payments WHERE custom = '$kidUser'";
                                             $result3 = mysqli_query($conn, $query1);
+                                        $sumquery ="SELECT SUM(payment_amount) AS value_sum FROM payments WHERE custom = '$kidUser'";
+                                        mysqli_query($conn, $sumquery) or die('Error querying database.');
+                                        $sumresult = mysqli_query($conn, $sumquery);
+                                        $sumrow = mysqli_fetch_array($sumresult);    
+                                            
                                             $num =1;
                                                 if ($result3->num_rows > 0) {
                                                     while ($row = $result3->fetch_assoc()) { ?>
@@ -91,17 +98,21 @@ include 'Templates\head.php';
                                                         <td><?= $row['payment_amount'] ?></td>
                                                         <td> <?= $row['createdtime'] ?>  </td>
                                                       </tr>
-                                                
-
+                                                      
                                                 <?php }
                                                 }
                                                  ?>
+                                        
 
                                             </table>
+                                                     
+                                                  <h4 class = "text-center"> סה"כ שולם לגן:
+                                               ₪<?= 0+$sumrow['value_sum'] ?> </h4>
                                         </div>
-                                        </div>
-                                        </div>
-                                        
+                                             </div>
+  
+
+                                                            </div>
 
                                                         </div>
                                                     </div>
@@ -117,8 +128,8 @@ include 'Templates\head.php';
 <!-- END: Content-->
 
 <?php 
-include 'Templates\footer.php';
-include 'Templates\JS.php';
+include ('Templates/footer.php');
+include ('Templates/JS.php');
 ?>
 
 

@@ -5,6 +5,43 @@ include ('Templates/menu.php');
 $date1 =date("Y-m-d");
 ?>
 
+<style>
+  .hide { 
+    position:absolute; 
+    top:-1px; 
+    left:-1px; 
+    width:0px; 
+    height:0px; 
+    }
+
+  select {
+      width:10em;
+      height: 1.8em;
+      background-color: #d8ebea;
+  }
+
+  h5 {
+    display: inline;
+     margin-left:2%;
+  }
+
+  img {
+      margin-right:2%; 
+      margin-left: 1%; 
+      margin-bottom:3%
+      vertical-align: sub;
+  }
+
+  .container {
+    display: inline;
+    margin-top:1%;
+  }
+  
+  @media screen and (max-width: 992px) {
+  .container {
+    display: block;
+  }
+</style>
 
 
 <title>KidsCare-Daily Update</title>
@@ -51,7 +88,9 @@ $date1 =date("Y-m-d");
                                                     <?php
                                                        $sql = "SELECT username, fullName, fileToUpload FROM accounts where status='1'";
                                                        $result = $conn->query($sql);
+                                                       
                                                       if ($result->num_rows > 0) {
+                                                        $i=1;
                                                           while ($row = $result->fetch_assoc()) { 
                                                               
                                                               $username1 = $row['username'];
@@ -67,99 +106,43 @@ $date1 =date("Y-m-d");
                                     <div class="card">
                                         <div class="card-header" id="headingGOne">
                                             <h4 class="mb-0">
-                                                <button class="btn btn-link" style="font-size:16px" data-toggle="collapse" data-target="#accordionC1" aria-expanded="true" aria-controls="accordionC1">
+                                                <button class="btn btn-link" style="font-size:16px" data-toggle="collapse" data-target=" <?php echo '#accordionC'.$i; ?>" aria-expanded="true" aria-controls="<?php echo 'accordionC'.$i; ?>">
                                                <span class="avatar avatar-online"><img  src="../uploads/<?= $row['fileToUpload'] ?>" alt="avatar">
                                                <?= $row['fullName'] ?>
                                                 </button>
                                             </h4>
                                         </div>
 
-                                        <div id="accordionC1" class="collapse show" aria-labelledby="headingGOne" data-parent="#accordion3">
+                                        <div id="<?php echo 'accordionC'.$i; ?>" class="collapse" aria-labelledby="headingGOne" data-parent= <?php echo '#accordionC'.$i; ?>>
                                             <div class="card-body">
                                             <div class="row skin skin-flat">
                                             <div class="col-md-11 col-sm-12">
-                                            <form method="post" action="DailyUpDB.php" name="attendance" autocomplete="on">
+                                            <iframe name="hiddenFrame" class="hide"></iframe>
+                                            <form method="post" action="DailyUpDB.php" name="attendance" autocomplete="on" target="hiddenFrame" id="myform">
                                             <input type="hidden" name="username" value="<?= $row['username'] ?>">
 
-                                            <img style ="display: inline; width:1.8em; height:2em; margin-right:2%" src="..\images\bed2.png"> <h5  style ="display: inline"> <b> מצב שינה יומי </b></h5>
-                                                    <div class="container" style="margin-bottom: 5%; margin-top:1%">
-                                                    <br>
-                                                    <?php if($row1['SleepStatus'] == 'good') {?>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="1" style =" background-color: #6967ce; color:white;"> מצויין </button>                                
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="2"> בינוני </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="3"> ישן מעט </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="4"> לא ישן </button>
-                                                        <?php } 
-
-                                                            else if($row1['SleepStatus'] == 'ok'){ ?> 
-                                                     <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="1" > מצויין </button>                                
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="2" style =" background-color: #6967ce; color:white;"> בינוני </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="3"> ישן מעט </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="4"> לא ישן </button>
-                                                            <?php } 
-                                                     else if($row1['SleepStatus'] == 'little'){ ?> 
-                                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="1" > מצויין </button>                                
-                                                                       <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="2" > בינוני </button>
-                                                                       <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="3" style =" background-color: #6967ce; color:white;"> ישן מעט </button>
-                                                                       <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="4"> לא ישן </button>
-                                                                               <?php } 
-
-                                                  else if($row1['SleepStatus'] == 'not sleep'){ ?> 
-                                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="1" > מצויין </button>                                
-                                                                       <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="2" > בינוני </button>
-                                                                       <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="3" > ישן מעט </button>
-                                                                       <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="4" style =" background-color: #6967ce; color:white;"> לא ישן </button>
-                                                                               <?php } 
-                                                                               
-                                                                               else{?> 
-                                                                                <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="1" > מצויין </button>                                
-                                                                               <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="2" > בינוני </button>
-                                                                               <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="3" > ישן מעט </button>
-                                                                               <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="sleep" value="4" > לא ישן </button>
-                                                                                       <?php }?>
-                                                                    
+                                                    <div class="container" style="margin-bottom: 3%;" >
+                                                    <img style ="display: inline; width:1.8em; height:2em;" src="..\images\bed2.png"> <h5> <b> מצב שינה יומי </b></h5>
+                                                    <select name="sleep"  onchange='if(this.value != 0) { this.form.submit(); }'>
+                                                    <option disabled selected value> בחר/י אפשרות</option>
+                                                     <option  value="1" <?php if ($row1['SleepStatus'] && $row1['SleepStatus'] == "good" ) { echo 'selected';}?>>מצויין</option>
+                                                     <option value="2" <?php if ($row1['SleepStatus'] && $row1['SleepStatus'] == "ok" ) { echo 'selected';}?> >בינוני</option>
+                                                     <option value="3"  <?php if ($row1['SleepStatus'] && $row1['SleepStatus'] == "little" ) { echo 'selected';}?>>ישנ/ה מעט</option>
+                                                     <option value="4" <?php if ($row1['SleepStatus'] && $row1['SleepStatus'] == "not sleep" ) { echo 'selected';}?>>לא ישנ/ה </option>
+                                                     </select>
                                                     </div>
 
-                                                    <img style ="display: inline; width:1.1em; height:1.6em; margin-right:2%" src="..\images\food.png"/> <h5 style ="display: inline"> <b> מצב ארוחות יומי </b></h5>
-                                                    <div class="container" style ="margin-top:1%">
-                                                    <?php 
-                                                    
-                                                    if($row1['FoodStatus'] == 'good') {?>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="1" style =" background-color: #6967ce; color:white;"> מצויין </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="2"> בינוני </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="3"> אכל מעט </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="4"> לא אכל </button>
-                                                        <?php } 
-
-                                                     else if($row1['FoodStatus'] == 'ok') {?>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="1" > מצויין </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="2" style =" background-color: #6967ce; color:white;"> בינוני </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="3"> אכל מעט </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="4"> לא אכל </button>
-                                                        <?php } 
-
-                                                     else if($row1['FoodStatus'] == 'little') {?>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="1" > מצויין </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="2"> בינוני </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="3"  style =" background-color: #6967ce; color:white;"> אכל מעט </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="4"> לא אכל </button>
-                                                        <?php } 
-
-                                                         else if($row1['FoodStatus'] == 'not eat') {?>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="1" > מצויין </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="2"> בינוני </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="3"  > אכל מעט </button>
-                                                    <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="4" style =" background-color: #6967ce; color:white;"> לא אכל </button>
-                                                        <?php } 
-                                                        
-                                                        else { ?>
-                                                            <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="1" > מצויין </button>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="2"> בינוני </button>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="3"> אכל מעט </button>
-                                                        <button class="btn btn-outline-primary btn-min-width round btn-sm mr-1 mb-1" type="submit" name="food" value="4"> לא אכל </button>
-                                                            <?php } 
-                                                        ?>
+                                                    <div class="container">
+                                                    <img style ="display: inline; width:1.1em; height:1.6em;" src="..\images\food.png"/> <h5 > <b> מצב ארוחות יומי </b></h5>
+                                                    <select  name="food" onchange='if(this.value != 0) { this.form.submit(); }'>
+                                                    <option disabled selected value> בחר/י אפשרות</option>
+                                                     <option value="1" <?php if ($row1['FoodStatus'] && $row1['FoodStatus'] == "good" )  { echo 'selected';}?>>מצויין</option>
+                                                     <option value="2" <?php if  ($row1['FoodStatus'] && $row1['FoodStatus'] == "ok" ) { echo 'selected';}?> >בינוני</option>
+                                                     <option value="3"  <?php if ($row1['FoodStatus'] && $row1['FoodStatus'] == "little" ) { echo 'selected';}?>>אכל/ה מעט</option>
+                                                     <option value="4" <?php if ($row1['FoodStatus'] && $row1['FoodStatus'] == "not eat" ) { echo 'selected';}?>>לא אכל/ה </option>
+                                                     </select>
                                                     </div>
+                                                
                                                 </form>
                                             </div>
                                         </div>
@@ -175,6 +158,8 @@ $date1 =date("Y-m-d");
                                                             }      
                                                 }
                                                 }
+                                                                                                else { echo "אין רישומי נוכחות לתאריך זה";}
+
                                                  ?>
 
                                                 </div>
@@ -195,9 +180,10 @@ $date1 =date("Y-m-d");
 <!-- END: Content-->
 
     <?php 
-include 'Templates\footer.php';
-include 'Templates\JS.php';
+include ('Templates/footer.php');
+include ('Templates/JS.php');
 ?>
+
 
 </body>
 

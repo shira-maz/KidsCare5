@@ -1,22 +1,6 @@
 
 <?php
- error_reporting(0);
-
-
- $servername = "localhost";
- $username = "root";
- $password = "";
- $dbname = "phplogin";
-
- // Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
-
- // Check connection
- if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
- }
-
- if (!$conn->set_charset("utf8")) { printf("Error loading character set utf8: %s\n", $conn->error); exit();}
+include ('Templates/DB.php');
 
                                 
 $date1 =date("Y-m-d");
@@ -37,9 +21,9 @@ if($row['username'] == $username1 && $row['date'] == $date1){
 }
 
 else{                             
-$sql = "INSERT INTO `attendance` (date, username, attendanceStatus)
+$sql = "INSERT INTO `attendance` (date, username, fullName, attendanceStatus)
 VALUES
-(' $date1', '".$_POST["username"]."', 'present')";
+(' $date1', '".$_POST["username"]."', '".$_POST["fullName"]."', 'present')";
 }
 
 if ($conn->query($sql)==FALSE){
@@ -64,9 +48,9 @@ else if ($_POST['action'] == 'X') {
     }
 
     else{
-    $sql1 = "INSERT INTO `attendance` (date, username, attendanceStatus)
+    $sql1 = "INSERT INTO `attendance` (date, username, fullName, attendanceStatus)
     VALUES
-    (' $date1', '".$_POST["username"]."', 'absent')";
+    (' $date1', '".$_POST["username"]."', '".$_POST["fullName"]."', 'absent')";
     }
 
     

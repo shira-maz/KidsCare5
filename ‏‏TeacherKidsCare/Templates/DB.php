@@ -4,9 +4,9 @@
 
 
                                     $servername = "localhost";
-                                    $username = "root";
-                                    $password = "";
-                                    $dbname = "phplogin";
+                                    $username = "isshiramt";
+                                    $password = "Aa123456";
+                                    $dbname = "isshiram_kidsCare";
 
                                     // Create connection
                                     $conn = new mysqli($servername, $username, $password, $dbname);

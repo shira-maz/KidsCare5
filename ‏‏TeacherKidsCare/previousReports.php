@@ -22,7 +22,7 @@ include ('Templates/head.php');
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">צפייה בדוחות התפתחות מתאריכים קודמים</h3>
+                    <h3 class="content-header-title">צפייה בדוחות התפתחות </h3>
                 </div>
             </div>
 

@@ -1,7 +1,8 @@
-<?php
+<?php 
 include ('Templates/DB.php');
-include ('Templates/head.php');
 include ('Templates/menu.php');
+include ('Templates/head.php');
+
 $date1 =date("Y-m-d");
 
 if (isset($_POST['search'])) {
@@ -17,6 +18,7 @@ td, th {
 
 
 <title>KidsCare-Previous Daily Update</title>
+
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
@@ -78,7 +80,7 @@ td, th {
                                         if ($countD > 0) {?>
                                          <h3 class = "text-center" > דיווח לתאריך  <?= $date1 ?> </h3>
                                         <tr>
-                                             <th> תאריך</th>
+                                             
                                             <th>שם הילד</th>
                                             <th>סטטוס נוכחות</th>
                                             <th>מצב שינה</th>
@@ -89,13 +91,7 @@ td, th {
                                             while ($row3D = $resD->fetch_assoc()) { ?>
                                            
                                         <tr>
-                                        <td>
-                                                    <div class="media">
-                                                        <div class="media-body media-middle">
-                                                        <span style=" text-align: center; " class="media-heading text-bold-700"><?php echo $row3D['date'] ?></span>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                     
                                                 <td>
                                                     <div class="media">
                                                         <div class="media-body media-middle">
@@ -104,7 +100,7 @@ td, th {
                                                     </div>
                                                 </td>
                                                 <td> 
-                                                <?php if($row3D['attendanceStatus'] == 'present') {?>
+                                                              <?php if($row3D['attendanceStatus'] == 'present') {?>
                                                 <span style=" text-align: center; color: green;" class="media-heading text-bold-700">V</span>
                                                 <?php }
                                                  else { ?>
@@ -179,18 +175,9 @@ td, th {
 <!-- END: Content-->
 
     <?php 
-include 'Templates\footer.php';
-include 'Templates\JS.php';
+include ('Templates/footer.php');
+include ('Templates/JS.php');
 ?>
 
 </body>
-
-<Script> 
-                                           var x = function convertDigitIn (05-07-2013);
-                                            document.getElementById("demo").innerHTML = x;
- 
-                                            function convertDigitIn(str){
-                                            return str.split('/').reverse().join('/');}
-                                           
-                                           </Script>
 </html>

@@ -51,7 +51,7 @@
                                     independence3 = '".$_POST["independence3"]."'
                                      WHERE username =  '$user1' AND date = '$date1'";
 
-                                    echo "עידכון הדוח נשמר בהצלחה" ;  
+                                    echo "עדכון הדוח נשמר בהצלחה" ;  
                                     
                                     if ($conn->query($q1)==false) {
                                         echo "התרחשה תקלה, אנא נסי שנית ".
