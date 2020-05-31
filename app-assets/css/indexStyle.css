@@ -1,0 +1,31 @@
+
+.indeximg{
+        border-radius: 50%; 
+        width:120px; 
+        height: 120px; 
+        border: solid;
+    }
+.div1 {
+
+    float:right;
+    }
+
+.div2 {
+    float:left;
+    }
+
+@media screen and (max-width: 500px) {
+    .div1 , .div2
+    {
+        float: none;
+        margin-right:25%;
+    }
+
+
+
+@media screen and (max-width: 400px) {
+    .div1,  .div2
+    {
+        margin-right:10%;
+    }
+}
