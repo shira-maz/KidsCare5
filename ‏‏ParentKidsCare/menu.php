@@ -1,7 +1,7 @@
 
 <?php
 
-include ('Templates/DB.php');
+include ('../DB/DB.php');
 $username1 = $_SESSION["name"]; 
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
@@ -57,7 +57,7 @@ $row = mysqli_fetch_array($result);
                  </li>
 				  <li class=" nav-item"><a href="pay.php"><i class="ft-file-text"></i><span class="menu-title" data-i18n="">תשלומים</span></a>
                 </li>
-                <li class=" nav-item"><a href="ShowBulletinBoard.php"><i class="ft-message-circle"></i><span class="menu-title" data-i18n="">לוח מודעות</span></a>
+                <li class=" nav-item"><a href="Notes.php"><i class="ft-message-circle"></i><span class="menu-title" data-i18n="">לוח מודעות</span></a>
                 </li>
                 </li>
                 <li class=" nav-item"><a href="developmentalReports.php"><i class="ft-edit"></i><span class="menu-title" data-i18n="">דוח התפתחות</span></a>

@@ -1,15 +1,8 @@
 <?php
-session_start();
+include ('../DB/DB.php');
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'isshiramt';
-$DATABASE_PASS = 'Aa123456';
-$DATABASE_NAME = 'isshiram_kidsCare';
-
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if ( mysqli_connect_errno() ) {
-
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
+if ( !isset($_POST['username'], $_POST['password']) ) {
+	exit('Please fill both the username and password fields!');
 }
 
 
@@ -17,8 +10,7 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
 	exit('Please fill both the username and password fields!');
 }
 
-if ($stmt = $con->prepare('SELECT id, password, status FROM accounts WHERE username = ?')) {
-
+if ($stmt = $conn->prepare('SELECT id, password, status FROM accounts WHERE username = ?')) {
 	$stmt->bind_param('s', $_POST['username']);
 	$stmt->execute();
     $stmt->store_result();
@@ -26,10 +18,8 @@ if ($stmt = $con->prepare('SELECT id, password, status FROM accounts WHERE usern
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($id, $password, $status);
         $stmt->fetch();
-     
-        if ($_POST['password'] === $password) {
-          
 
+        if ($_POST['password'] === $password) {
             if($status==1){
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['name'] = $_POST['username'];
@@ -41,12 +31,10 @@ if ($stmt = $con->prepare('SELECT id, password, status FROM accounts WHERE usern
                 $error1 = "אינך יכול להתחבר ללא אישור הגננת";
                 $_SESSION["error"] = $error1;
                 header("Location: index.php");
-
             }
         
             
-        } else {
-           
+        } else {   
             $error1 = "סיסמה שגויה";
             $_SESSION["error"] = $error1;
             header("Location: index.php");

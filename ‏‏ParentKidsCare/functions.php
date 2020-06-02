@@ -1,6 +1,5 @@
 <?php
-include ('Templates/DB.php');
-include ('Templates/menu.php');
+include ('../DB/DB.php');
 
 /**
  * Verify transaction is authentic

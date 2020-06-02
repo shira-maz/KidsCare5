@@ -1,8 +1,8 @@
 
 <?php 
-include ('Templates/DB.php');
-include ('Templates/menu.php');
-include ('Templates/head.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 
 $date1 =date("Y-m-d");
 if (isset($_POST['search'])) {
@@ -30,7 +30,6 @@ h3{
     color:black;
 }
 
-
 .card-body{
     margin-bottom: 3%;
 }
@@ -47,11 +46,12 @@ h5, p{
 </style>
 
 
-<title>KidsCare-Developmental Reports</title>
 
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
+<title>KidsCare-Developmental Reports</title>
+
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
@@ -82,7 +82,6 @@ h5, p{
                                         <ul class="list-inline mb-0">
                                             <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -220,11 +219,10 @@ h5, p{
     </div>
     </div>
 
-<!-- END: Content-->
 
-    <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

@@ -1,17 +1,17 @@
+
+<?php 
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
+?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
-<?php 
-include ('Templates/head.php');
-include ('Templates/DB.php');
-include ('Templates/menu.php');
-?>
-
-<title>KidsCare-pay</title>
+<title>KidsCare-Pay</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
    
- <!-- BEGIN: Content-->
  <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-wrapper-before"></div>
@@ -33,7 +33,6 @@ include ('Templates/menu.php');
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                         <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -109,7 +108,6 @@ include ('Templates/menu.php');
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                         <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,14 +161,10 @@ include ('Templates/menu.php');
 </div>
 
 
-
-   <!-- END: Content-->
-
- <?php
- include ('Templates/footer.php');
- include ('Templates/JS.php');
-  ?>
-
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
+?>
 
 </body>
 

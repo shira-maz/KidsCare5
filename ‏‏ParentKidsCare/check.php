@@ -1,14 +1,14 @@
+
+<?php 
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
-<?php 
-include ('Templates/head.php');
-include ('Templates/DB.php');
 
-
-?>
-
-<<style>
+<style>
 #fadeout {
   opacity: 1;
   transition: 1s opacity;
@@ -125,7 +125,7 @@ body {
                     </div>
 
 <?php 
-include ('Templates/JS.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 <script>

@@ -1,6 +1,9 @@
 
 <?php
-     include('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
+
 $username1 = $_SESSION["name"];
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
@@ -10,17 +13,10 @@ $row = mysqli_fetch_array($result);
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-<?php
-     include('Templates/head.php');
-     ?>
-    <title>KidsCare-Details</title>
-    
+ <title>KidsCare-Details</title>
+ 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-<?php
-     include('Templates/menu.php');
-     ?>
 
-  <!-- BEGIN: Content-->
   <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -30,43 +26,21 @@ $row = mysqli_fetch_array($result);
                 </div>
             </div>
 
-            <div class="content-body">
-                <section id="line-awesome-icons">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <a class="heading-elements-toggle"><i
-                                            class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
+     
+            <div class="card">
+              <div class="card profile-card-4">
+               <div class="card-body pt-5">
+                 <img alt="profile-image" class="profile" src="../uploads/<?= $row['fileToUpload'] ?>" />
+                  <h5 class="card-title text-center"> <?= $row['fullName'] ?> </h5>
+                  </div>
 
                                 <div class="content-wrapper">
-
                                     <div class="content-body">
                                         <section class="flexbox-container">
                                             <div class="col-12 d-flex align-items-center justify-content-center">
-
                                                 <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                                                     <div class="card-content" style="margin-top:7%;">
                                                         <div class="row justify-content-md-center">
-
-                                                            <div class="card">
-                                                                <div class="card profile-card-4">
-                                                                    <div class="card-body pt-5">
-                                                                        <img alt="profile-image" class="profile"
-                                                                            src="../uploads/<?= $row['fileToUpload'] ?>" />
-                                                                        <h5 class="card-title text-center">
-                                                                            <?= $row['fullName'] ?> </h5>
-                                                                    </div>
-
                                                                     <form method="post" action="EditingRegister.php" name="accounts"
                                                                         onsubmit="return registrationFormValidation();"
                                                                         autocomplete="on" enctype="multipart/form-data">
@@ -74,18 +48,12 @@ $row = mysqli_fetch_array($result);
                                                                             <label class="col-lg-5">שם
                                                                                 משתמש</label><input type="text"
                                                                                 class="form-control round col-md-7"
-                                                                                style="display: inline-block; border: solid 1px red;"
+                                                                                style="display: inline-block; border: solid 1px black;"
                                                                                 name="username"
                                                                                 value="<?php echo $row['username'] ?>"
                                                                                 required readonly> </div>
-                                                                        <div class=form-group row>
-                                                                            <label class="col-lg-5">סיסמה</label><input
-                                                                                type="password" name="password"
-                                                                                class="form-control round col-md-7"
-                                                                                style="display: inline-block; border: solid 1px red;"
-                                                                                value="<?php echo $row['password'] ?>"
-                                                                                required readonly> </div>
-                                                                        <div class=form-group row>
+                                                             
+                                                                                                                                                <div class=form-group row>
                                                                             <label class="col-lg-5">אימייל</label><input
                                                                                 type="email"
                                                                                 class="form-control round col-md-7"
@@ -111,14 +79,8 @@ $row = mysqli_fetch_array($result);
                                                                                 required ></div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">מין</label>
-                                                                            <input type="radio"
-                                                                                style="display: inline-block"
-                                                                                name="gender" value="זכר" checked
-                                                                                required ><label> זכר</label>
-                                                                            <input type="radio"
-                                                                                style="display: inline-block"
-                                                                                name="gender" value="נקבה" checked
-                                                                                required ><label> נקבה</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="זכר" required <?php if (isset ($row['gender']) && $row['gender'] == "זכר" ) { echo 'checked';}?>> זכר</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required <?php if (isset ($row['gender']) && $row['gender'] == "נקבה" ) { echo 'checked';}?>> נקבה</label>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">תאריך
@@ -129,7 +91,7 @@ $row = mysqli_fetch_array($result);
                                                                                 value="<?php echo $row['birthday'] ?>"
                                                                                 required ></div>
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם האב</label><input
+                                                                            <label class="col-lg-5"> שם ההורה</label><input
                                                                                 type="text"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
@@ -145,7 +107,7 @@ $row = mysqli_fetch_array($result);
                                                                                 value="<?php echo $row['phone1'] ?>"
                                                                                 required > </div>
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם האם</label><input
+                                                                            <label class="col-lg-5">שם ההורה</label><input
                                                                                 type="text"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
@@ -170,16 +132,17 @@ $row = mysqli_fetch_array($result);
                                                                                 required ></div>
                                                                         <div class=form-group row>
                                                                             <label
-                                                                                class="col-lg-5">אלרגיות</label><textarea
+                                                                                class="col-lg-5" >אלרגיות</label><textarea
                                                                                 class="form-control round col-md-7"
-                                                                                 style="display: inline-block"
+                                                                                 style="display: inline-block;vertical-align: text-top;"
+"
                                                                                 name="allergies"><?php echo $row['allergies'] ?></textarea>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label
                                                                                 class="col-lg-5">תרופות</label><textarea
                                                                                 class="form-control round col-md-7"
-                                                                                 style="display: inline-block"
+                                                                                 style="display: inline-block;vertical-align: text-top;""
                                                                                 name="medicines"><?php echo $row['medicines'] ?> </textarea>
                                                                         </div>
                                                                         <div class="form-actions center">
@@ -205,16 +168,11 @@ $row = mysqli_fetch_array($result);
             </div>
         </div>
     </div>
-
-
                                      
-  <!-- END: Content-->
-
-  <?php
-     include('Templates/footer.php');
-     include('Templates/JS.php');
-     ?>
-
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
+?>
 
 </body>
 

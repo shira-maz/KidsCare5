@@ -1,9 +1,12 @@
+<?php 
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-
-<?php 
-include ('Templates/head.php');
-?>
+<title>KidsCare-Register</title>
+<script src="../app-assets/js/registrationFormValidation.js"></script>
 
 <style>
   .required:after {
@@ -11,9 +14,6 @@ include ('Templates/head.php');
     color: red;
   }
 </style>
-
-<title>KidsCare-Register</title>
-<script src="registrationFormValidation.js"></script>
 
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image " data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
@@ -49,22 +49,22 @@ include ('Templates/head.php');
                                 <div class=form-group row>
                                 <label class="col-xl-3 required">שם מלא</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="fullName" required ></div>	
                                 <div class=form-group row>				
-                                <label class="col-xl-3">ת.ז</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="idNum" required ></div>
+                                <label class="col-xl-3 required">ת.ז</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="idNum" minlength="9" maxlength="9" required ></div>
                                 <div class=form-group row>
                                     <label class="col-xl-3 required">מין</label>
-                                <input type="radio"   style ="display: inline-block" name="gender" value="זכר" checked required ><label > זכר</label>
-                                <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" checked required ><label> נקבה</label>
+                                <input type="radio"  style ="display: inline-block" name="gender" value="זכר" required ><label > זכר</label>
+                                <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required ><label> נקבה</label>
                                 </div>
                                 <div class=form-group row>
                                 <label class="col-xl-3 required">תאריך לידה</label><input type="date" class="form-control round col-md-8" style ="display: inline-block" name="birthday" required ></div>
                                 <div class=form-group row>	
-                                <label class="col-xl-3 required">שם האב</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="parentName1" required ></div>
+                                <label class="col-xl-3 required">שם ההורה</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="parentName1" required ></div>
                                 <div class=form-group row>
-                                <label class="col-xl-3 required">מספר טלפון</label><input type="numbers"  class="form-control round col-md-8" style ="display: inline-block" name="phone1" required >	</div>
+                                <label class="col-xl-3 required">מספר טלפון</label><input type="numbers"  class="form-control round col-md-8" style ="display: inline-block" name="phone1" minlength="10" maxlength="10">	</div>
                                 <div class=form-group row>
-                                <label class="col-xl-3 required">שם האם</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="parentName2" required ></div>
+                                <label class="col-xl-3">שם ההורה</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="parentName2"  ></div>
                                 <div class=form-group row>
-                                 <label class="col-xl-3 required">מספר טלפון</label><input type="numbers" class="form-control round col-md-8" style ="display: inline-block" name="phone2" required ></div>
+                                 <label class="col-xl-3">מספר טלפון</label><input type="numbers" class="form-control round col-md-8" style ="display: inline-block" name="phone2" minlength="10" maxlength="10" ></div>
                                  <div class=form-group row>	
                                     <label class="col-xl-3 required">כתובת</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="address" required ></div>
                                  <div class=form-group row>
@@ -73,7 +73,7 @@ include ('Templates/head.php');
                                 <label class="col-xl-3">תרופות</label><textarea  class="form-control round col-md-8" style ="display: inline-block" name="medicines"  ></textarea></div>
                                 <div></div>
                                 <label class="col-xl-3" style = "margin-bottom:3%">העלה תמונה</label>
-                                <input  type="file"  name="fileToUpload" id="fileToUpload" required  /> <br>
+                                <input  type="file"  name="fileToUpload" id="fileToUpload"/> <br>
                                 <P class="text-center" style = "margin-left:10%; margin-top:3%; font-size: 1rem "> מומלץ להעלות תמונה מרובעת</P>
                                 <input type="hidden" name="status" value="3" hide >
                                 <div class="form-actions center">
@@ -88,7 +88,7 @@ include ('Templates/head.php');
     <!-- END: Content-->
 
     <?php 
-include ('Templates/JS.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 </body>
 </html>

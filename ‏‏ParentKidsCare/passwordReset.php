@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
-
 <?php 
-include ('Templates/head.php');
-include ('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
 ?>
 
 
-<title>KidsCare-Register</title>
-<script src="registrationFormValidation.js"></script>
-
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
+<title>KidsCare-Password Reset</title>
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image " data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
     <div class="app-content content"  >
@@ -56,7 +53,7 @@ include ('Templates/DB.php');
     <!-- END: Content-->
 
     <?php 
-include ('Templates/JS.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

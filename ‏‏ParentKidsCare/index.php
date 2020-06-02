@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
 
 <?php 
-include ('Templates/DB.php');
-include ('Templates/head.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
 ?>
 
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
 <title>KidsCare-Login</title>
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -71,11 +70,9 @@ include ('Templates/head.php');
             </div>
         </div>
     </div>
-    <!-- END: Content-->
-
     <?php
-     include ('Templates/JS.php');
-     ?>
+include ('../GeneralTemplates/JS.php');
+?>
 
 
 </body>

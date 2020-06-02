@@ -1,7 +1,8 @@
 
 <?php
 
- include ('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
 
  $target_dir = "../uploads/";
  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -19,9 +20,10 @@
 
  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
    
-$sql = "INSERT INTO accounts (username, password, email, fullName, idNum, gender, birthday, parentName1,
+$sql = "INSERT INTO accounts (username, password, confirmationPassword, email, fullName, idNum, gender, birthday, parentName1,
  phone1, parentName2, phone2, address, allergies, medicines, fileToUpload, status)
- VALUES ('".$_POST["username"]."', '".$_POST["password"]."',
+
+ VALUES ('".$_POST["username"]."', '".$_POST["password"]."', '".$_POST["confirmationPassword"]."',
   '".$_POST["email"]."', '".$_POST["fullName"]."',
    '".$_POST["idNum"]."', '".$_POST["gender"]."',
    '".$_POST["birthday"]."', '".$_POST["parentName1"]."',
@@ -30,14 +32,14 @@ $sql = "INSERT INTO accounts (username, password, email, fullName, idNum, gender
      '".$_POST["medicines"]."', '". basename($_FILES["fileToUpload"]["name"])."', '".$_POST["status"]."' )";
  }
 else {
-    $target_dir = "../uploads/profile.PNG";
+    $target_dir = "../uploads/profile.png";
     $target_file = $target_dir;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
        
-$sql = "INSERT INTO accounts (username, password, email, fullName, idNum, gender, birthday, parentName1,
+$sql = "INSERT INTO accounts (username, password, confirmationPassword, email, fullName, idNum, gender, birthday, parentName1,
 phone1, parentName2, phone2, address, allergies, medicines, fileToUpload, status)
-VALUES ('".$_POST["username"]."', '".$_POST["password"]."',
+VALUES ('".$_POST["username"]."', '".$_POST["password"]."' , '".$_POST["confirmationPassword"]."',
  '".$_POST["email"]."', '".$_POST["fullName"]."',
   '".$_POST["idNum"]."', '".$_POST["gender"]."',
   '".$_POST["birthday"]."', '".$_POST["parentName1"]."',
@@ -58,13 +60,9 @@ $conn->close();
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-
-<?php
-     include ('Templates/head.php');
-     ?>
+<title>KidsCare-Registration approved</title>
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -100,11 +98,10 @@ $conn->close();
             </div>
         </div>
     </div>
-    <!-- END: Content-->
 
-    <?php
-     include ('Templates/JS.php');
-     ?>
+<?php
+include ('../GeneralTemplates/JS.php');
+?>
 
 </body>
 </html>
