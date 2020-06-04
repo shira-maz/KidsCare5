@@ -1,9 +1,12 @@
 <?php
-include ('Templates/DB.php');
-include ('Templates/head.php');
-include ('Templates/menu.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 $date1 =date("Y-m-d");
 ?>
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
 
 <style>
   .hide { 
@@ -39,15 +42,11 @@ $date1 =date("Y-m-d");
   
   @media screen and (max-width: 992px) {
   .container {
-    display: block;
+    display: block;}
   }
 </style>
 
-
 <title>KidsCare-Daily Update</title>
-
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
@@ -68,13 +67,14 @@ $date1 =date("Y-m-d");
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">עדכון שינה וארוחות</h4>
+                                    <h3 class="card-title text-center" style ="margin-top:2%;"> 
+                                     גננת יקרה, בעמוד זה יופיעו ילדים עבורם סימנת נוכחות חיובית להיום בעמוד רשימת הנוכחות.
+                 </h3> 
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -84,13 +84,11 @@ $date1 =date("Y-m-d");
                                             <div class="container">
                                                 <div class="row">
                                             
-
                                                     <?php
                                                        $sql = "SELECT username, fullName, fileToUpload FROM accounts where status='1'";
                                                        $result = $conn->query($sql);
-                                                       
-                                                      if ($result->num_rows > 0) {
-                                                        $i=1;
+                                                       $i==0;
+                                                         if ($result->num_rows > 0) {
                                                           while ($row = $result->fetch_assoc()) { 
                                                               
                                                               $username1 = $row['username'];
@@ -98,9 +96,10 @@ $date1 =date("Y-m-d");
                                                               $res= $conn->query($q);
                                                               $row1 = $res->fetch_assoc();
                                                             if ($row1['attendanceStatus'] == 'present') {
-                                                                ?>
-                                                    
-                                                    <div class="col-lg-12 col-xl-10">
+                                                                $i++;
+                                                            ?>
+
+                         <div class="col-lg-12 col-xl-10" style ="margin:auto;">
                             <div id="accordion3" class="card-accordion">
                                 <div class="card collapse-icon accordion-icon-rotate">
                                     <div class="card">
@@ -122,7 +121,7 @@ $date1 =date("Y-m-d");
                                             <input type="hidden" name="username" value="<?= $row['username'] ?>">
 
                                                     <div class="container" style="margin-bottom: 3%;" >
-                                                    <img style ="display: inline; width:1.8em; height:2em;" src="..\images\bed2.png"> <h5> <b> מצב שינה יומי </b></h5>
+                                                    <img style ="display: inline; width:1.8em; height:2em;" src="..\app-assets\images\icons\bed2.png"> <h5> <b> מצב שינה יומי </b></h5>
                                                     <select name="sleep"  onchange='if(this.value != 0) { this.form.submit(); }'>
                                                     <option disabled selected value> בחר/י אפשרות</option>
                                                      <option  value="1" <?php if ($row1['SleepStatus'] && $row1['SleepStatus'] == "good" ) { echo 'selected';}?>>מצויין</option>
@@ -133,7 +132,7 @@ $date1 =date("Y-m-d");
                                                     </div>
 
                                                     <div class="container">
-                                                    <img style ="display: inline; width:1.1em; height:1.6em;" src="..\images\food.png"/> <h5 > <b> מצב ארוחות יומי </b></h5>
+                                                    <img style ="display: inline; width:1.1em; height:1.6em;" src="..\app-assets\images\icons\food.png"/> <h5 > <b> מצב ארוחות יומי </b></h5>
                                                     <select  name="food" onchange='if(this.value != 0) { this.form.submit(); }'>
                                                     <option disabled selected value> בחר/י אפשרות</option>
                                                      <option value="1" <?php if ($row1['FoodStatus'] && $row1['FoodStatus'] == "good" )  { echo 'selected';}?>>מצויין</option>
@@ -146,23 +145,27 @@ $date1 =date("Y-m-d");
                                                 </form>
                                             </div>
                                         </div>
+                                                                   
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                         </div>
+                        
                         </div>
+                        <?php
+                             }    
+                             }
+                               }
+                               if ($i==0) { ?>
 
+                                 <h3 style = "margin: auto;" >  אין רישומי נוכחות לתאריך זה </h3>
 
-                                                    <?php
-                                                            }      
-                                                }
-                                                }
-                                                                                                else { echo "אין רישומי נוכחות לתאריך זה";}
-
-                                                 ?>
-
+                            <?php } ?>
+                           
                                                 </div>
+                                                <input type="button" onclick="location.href = 'home.php';" value = "חזרה לדף הבית" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-6 mr-1 mb-1" style ="margin-right:25%; margin-top:3%;"> 
                                             </div>
                                         </section>
                                     </div>
@@ -177,14 +180,10 @@ $date1 =date("Y-m-d");
     </div>
     </div>
 
-<!-- END: Content-->
-
-    <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
-
 </body>
-
 </html>

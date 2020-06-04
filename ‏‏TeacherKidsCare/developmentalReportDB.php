@@ -1,6 +1,6 @@
 <?php
- include ('Templates/DB.php');
- include ('Templates/head.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
  $date1 = $_POST["date"];
  $user1 = $_POST["username"];
 ?>
@@ -26,16 +26,14 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body text-center">
+                                    <h1 class="text-center">
                                 <?php
                                   $q1= "SELECT * FROM developmentalreport where username='$user1' and date = '$date1'";
                                   $res1= $conn->query($q1);
                                   $row5 = $res1->fetch_assoc();
-
-                                 
-
+                              
                                   if($row5['username'] == $user1 && $row5['date'] == $date1){
-                                    
-                                    $sql2 = "UPDATE  developmentalreport 
+                                     $sql2 = "UPDATE  developmentalreport 
                                     SET 
                                     Language1 = '".$_POST["Language1"]."',  Language2 = '".$_POST["Language2"]."',
                                     Language3 = '".$_POST["Language3"]."',  Language4 = '".$_POST["Language4"]."',
@@ -92,10 +90,9 @@
                                 }
                                  $conn->close();       
                                  ?>
-
+                                 </h1>
                                     </div>
                                 
-
                                     <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span> <a href="kidsForReports.php" class="card-link"> לחצי כאן לחזרה</a></span></p>
                                 </div>
                             </div>
@@ -108,8 +105,8 @@
     </div>
 
 <?php
-  include ('Templates/footer.php');
-  include ('Templates/JS.php');
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

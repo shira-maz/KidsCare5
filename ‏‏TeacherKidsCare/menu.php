@@ -1,6 +1,6 @@
 
 <?php
-     include 'Templates\DB.php';
+include ('../DB/DB.php');
 $username1 = $_SESSION["name"]; 
 $query ="SELECT * FROM accountsstaff WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
@@ -75,7 +75,7 @@ $row = mysqli_fetch_array($result);
                 <li class=" nav-item"><a href="Payments.php"><i class="ft-file-text"></i><span class="menu-title"
                             data-i18n="">תשלומים</span></a>
                 </li>
-                <li class=" nav-item"><a href="BulletinBoard.php"><i class="ft-message-circle"></i><span class="menu-title"
+                <li class=" nav-item"><a href="NotesT.php"><i class="ft-message-circle"></i><span class="menu-title"
                             data-i18n="">לוח מודעות</span></a>
                 </li>
                 

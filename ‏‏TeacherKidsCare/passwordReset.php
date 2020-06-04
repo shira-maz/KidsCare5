@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
-
 <?php 
-include ('Templates/head.php');
-include ('Templates/DB.php');
-
-
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
 ?>
 
 
-<title>KidsCare-Register</title>
-<script src="registrationFormValidation.js"></script>
-
-
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
+<title>KidsCare-Password Reset</title>
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image " data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
     <div class="app-content content"  >
         <div class="content-wrapper">
@@ -42,7 +36,6 @@ include ('Templates/DB.php');
                                
                                 <div class=form-group row>				
                                 <label class="col-xl-3">ת.ז</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="idNum" required ></div>
-                              
                                 
                                 <div class="form-group text-center">
                                      <button type="submit" id="myBtn" name="search" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">הצג את סיסמתי</button>
@@ -55,10 +48,9 @@ include ('Templates/DB.php');
                             </form>
                         </div>
                     </div>
-    <!-- END: Content-->
 
-    <?php 
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

@@ -1,5 +1,7 @@
 <?php
-include ('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 $username1 = $_GET["username"]; 
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
@@ -10,19 +12,10 @@ $kidUser=$row2['username'];
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-
-<?php 
-include ('Templates/head.php');
-include ('Templates/menu.php');
-?>
-
 <title>KidsCare-Kid Paynents</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-  
-
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -42,9 +35,7 @@ include ('Templates/menu.php');
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -69,8 +60,8 @@ include ('Templates/menu.php');
                                                                             <?= $row2['fullName'] ?> </h5>
                                                                     </div>
 
-                                                           
-                                                                    <!-- Task List table -->
+                                                                                                   
+                                                          
                                         <div class="table-responsive">
                                             <table id="users-contacts" class="table table-white-space table-bordered table-striped row-grouping display no-wrap icheck table-middle">
                                             <tr>
@@ -125,13 +116,9 @@ include ('Templates/menu.php');
         </div>
     </div>
 
-<!-- END: Content-->
-
 <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
-
-
 </body>
 </html>

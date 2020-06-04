@@ -1,6 +1,5 @@
-
 <?php
-include ('Templates/DB.php');
+include ('../DB/DB.php');
                                 
 $date1 =date("Y-m-d");
 $username1 = $_POST["username"];
@@ -60,8 +59,6 @@ if ($_POST['sleep'] == '4') {
       
 
 } 
-
-
 
 if ($_POST['food'] == '1') {
     $sql = "UPDATE  `attendance` 

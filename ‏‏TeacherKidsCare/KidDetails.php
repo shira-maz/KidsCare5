@@ -1,29 +1,23 @@
 <?php
-include ('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 $username1 = $_GET["username"]; {
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
 $result2 = mysqli_query($conn, $query);
 $row2 = mysqli_fetch_array($result2);
 }
-
 ?>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
-<?php 
-include ('Templates/head.php');
-?>
 <title>KidsCare-Kid Details</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-    <?php 
-    include ('Templates/menu.php');
-    ?>
 
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -33,26 +27,13 @@ include ('Templates/head.php');
                 </div>
             </div>
 
-            <div class="content-body">
-                <section id="line-awesome-icons">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <a class="heading-elements-toggle"><i
-                                            class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
+            <div class="card">
+              <div class="card profile-card-4">
+              <div class="card-body pt-5">
+              <img alt="profile-image" class="profile" src="../uploads/<?= $row2['fileToUpload'] ?>" />
+               <h5 class="card-title text-center"> <?= $row2['fullName'] ?> </h5> </div>
 
                                 <div class="content-wrapper">
-
                                     <div class="content-body">
                                         <section class="flexbox-container">
                                             <div class="col-12 d-flex align-items-center justify-content-center">
@@ -61,17 +42,9 @@ include ('Templates/head.php');
                                                     <div class="card-content" style="margin-top:7%;">
                                                         <div class="row justify-content-md-center">
 
-                                                            <div class="card">
-                                                                <div class="card profile-card-4">
-                                                                    <div class="card-body pt-5">
-                                                                        <img alt="profile-image" class="profile"
-                                                                            src="../uploads/<?= $row2['fileToUpload'] ?>" />
-                                                                        <h5 class="card-title text-center">
-                                                                            <?= $row2['fullName'] ?> </h5>
-                                                                    </div>
+                                                          
 
-                                                                    <form method="post" action="APRegister.php"
-                                                                        name="accounts"
+                                                                    <form method="post" action="APRegister.php" name="accounts"
                                                                         onsubmit="return registrationFormValidation();"
                                                                         autocomplete="on" enctype="multipart/form-data">
                                                                         <div class=form-group row>
@@ -82,13 +55,7 @@ include ('Templates/head.php');
                                                                                 name="username"
                                                                                 value="<?php echo $row2['username'] ?>"
                                                                                 required readonly> </div>
-                                                                        <div class=form-group row>
-                                                                            <label class="col-lg-5">סיסמה</label><input
-                                                                                type="password" name="password"
-                                                                                class="form-control round col-md-7"
-                                                                                style="display: inline-block"
-                                                                                value="<?php echo $row2['password'] ?>"
-                                                                                required readonly> </div>
+                                          
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">אימייל</label><input
                                                                                 type="email"
@@ -186,29 +153,22 @@ include ('Templates/head.php');
                                                                                 readonly style="display: inline-block"
                                                                                 name="medicines"><?php echo $row2['medicines'] ?> </textarea>
                                                                         </div>
-
                                                                 </div>
                                                                 </form>
-
                                                             </div>
-
-
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                             </div>
                                     </div>
+                              </div>
                 </section>
-
             </div>
         </div>
     </div>
 
-<!-- END: Content-->
-
 <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 

@@ -1,22 +1,23 @@
 <?php
-include ('Templates/DB.php');
-include ('Templates/head.php');
-include ('Templates/menu.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 $date1 =date("Y-m-d");
 ?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-<!-- BEGIN: Head-->
 
+<style>
+th {
+   text-align: center;
+}
+</style>
 
 <title>KidsCare-Attendance List </title>
 
-
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-
-
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -36,9 +37,7 @@ $date1 =date("Y-m-d");
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -115,7 +114,7 @@ $date1 =date("Y-m-d");
                                                  ?>
                                        
                                             </table>
-                                                                                        <input type="button" onclick="location.href = 'attendanceDone.php';" value = "עדכן" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">                              
+                                                <input type="button" onclick="location.href = 'home.php';" value = "חזרה לדף הבית" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-6 mr-1 mb-1 " style ="margin-right:25%;">                              
 
                                             </div>
                                     </div>
@@ -131,12 +130,9 @@ $date1 =date("Y-m-d");
     </div>
 
 
-    <!-- END: Content-->
-
-
 <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

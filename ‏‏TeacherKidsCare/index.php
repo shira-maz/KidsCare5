@@ -1,20 +1,14 @@
+<?php
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-
-<?php 
-include 
-('Templates/DB.php');
-?>
-
-<?php 
-include ('Templates/head.php');
-?>
 <title>KidsCare-Login</title>
-
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click"
     data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -66,7 +60,7 @@ include ('Templates/head.php');
                                             ?>  
                                         </form>
                                     </div>
-                                                                    <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span>שכחת את הסיסמה? <a href="passwordReset.php" class="card-link">לחץ כאן</a></span></p>
+                                    <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span>שכחת את הסיסמה? <a href="passwordReset.php" class="card-link">לחץ כאן</a></span></p>
 
                                 </div>
                             </div>
@@ -78,10 +72,8 @@ include ('Templates/head.php');
         </div>
     </div>
 
-    <!-- END: Content-->
-    <?php 
-
-include ('Templates/JS.php');
+ <?php 
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

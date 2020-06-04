@@ -1,8 +1,8 @@
 
 <?php 
-include ('Templates/DB.php');
-include ('Templates/menu.php');
-include ('Templates/head.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 
 $date1 =date("Y-m-d");
 if (isset($_POST['search'])) {
@@ -17,6 +17,10 @@ $username1 = $_GET["username"];
     
 
 ?>
+
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
 
 <style>
 td, th {
@@ -54,12 +58,7 @@ h5, p{
 
 </style>
 
-
 <title>KidsCare-Previous Developmental Report</title>
-
-
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
@@ -69,19 +68,46 @@ h5, p{
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">דיווחי התפתחות </h3>
+                    <h3 class="content-header-title">דיווח התפתחותי</h3>
                 </div>
             </div>
 
-            <div class="card profile-card-4 " >
-            <div class="card-body pt-5" style ="text-align: center;">
-                <img alt="profile-image" class="profile"
-                    src="../uploads/<?= $row2['fileToUpload'] ?>" />
-                <h5 class="card-title">
-                    <?= $row2['fullName'] ?> </h5>
-            </div>
-          
+            <div class="content-body">
+                <section id="line-awesome-icons">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="heading-elements-toggle"><i
+                                            class="la la-ellipsis-v font-medium-3"></i></a>
+                                    <div class="heading-elements">
+                                        <ul class="list-inline mb-0">
+                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
+
+                                <div class="content-wrapper">
+
+                                    <div class="content-body">
+                                        <section class="flexbox-container">
+                                            <div class="col-12 d-flex align-items-center justify-content-center">
+
+                                         
+                                                            <div class="card">
+                                                                <div class="card profile-card-4">
+                                                                    <div class="card-body pt-5">
+                                                                        <img alt="profile-image" class="profile"
+                                                                            src="../uploads/<?= $row2['fileToUpload'] ?>" />
+                                                                        <h5 class="card-title text-center" style = "text-align:center;">
+                                                                            <?= $row2['fullName'] ?> </h5>
+                                                                    </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    </div>
+                                                                   </section>
+                                                                    </div>
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <section>
@@ -211,12 +237,11 @@ h5, p{
         </div>
     </div>
     </div>
+  
 
-<!-- END: Content-->
-
-    <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

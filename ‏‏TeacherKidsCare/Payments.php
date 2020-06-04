@@ -1,25 +1,16 @@
 <?php 
-include 
-('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 ?>
 
-<?php 
-include ('Templates/head.php');
-?>
-<title>KidsCare-Payment</title>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
+<title>KidsCare-PaymentS</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-
-    <?php 
-    include ('Templates/menu.php');
-    ?>
-
-
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -38,9 +29,7 @@ include ('Templates/head.php');
                                   
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -62,11 +51,11 @@ include ('Templates/head.php');
                                                     <div class="col-md-4 mt-4">
                                                         <div class="card profile-card-4">
                                                             <div class="card-body pt-5">
-                                                            <a href="‏‏KidPayments.php?username=<?= $row['username'] ?>">
+                                                            <a href="KidPayments.php?username=<?= $row['username'] ?>">
                                                                 <img alt="profile-image" class="profile"
                                                                     src="../uploads/<?= $row['fileToUpload'] ?>" /> </a>
                                                                                 <h5 class="card-title text-center"> <a
-                                                                        href="‏‏KidPayments.php?username=<?= $row['username'] ?>">
+                                                                        href="KidPayments.php?username=<?= $row['username'] ?>">
                                                                         <?= $row['fullName'] ?> </a></h5>
                                                             </div>
                                                         </div>
@@ -90,11 +79,9 @@ include ('Templates/head.php');
     </div>
     </div>
 
-<!-- END: Content-->
-
 <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

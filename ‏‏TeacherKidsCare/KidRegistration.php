@@ -1,27 +1,19 @@
 <?php
-include ('Templates/DB.php');
-
-$username1 = $_GET["username"]; {
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
+$username1 = $_GET["username"]; 
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
 mysqli_query($conn, $query) or die('Error querying database.');
 $result1 = mysqli_query($conn, $query);
 $row2 = mysqli_fetch_array($result1);
-
-}
 ?>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-<?php 
-include ('Templates/head.php');
-?>
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-    <?php 
-include ('Templates/menu.php');
-?>
-  
-    <!-- BEGIN: Content-->
+ 
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -41,9 +33,7 @@ include ('Templates/menu.php');
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -73,19 +63,12 @@ include ('Templates/menu.php');
                                                                         onsubmit="return registrationFormValidation();"
                                                                         autocomplete="on" enctype="multipart/form-data">
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם
+                                                                        <label class="col-lg-5">שם
                                                                                 משתמש</label><input type="text"
                                                                                 class="form-control round col-md-7"
-                                                                                style="display: inline-block"
+                                                                                style="display: inline-block; border: solid 1px black;"
                                                                                 name="username"
                                                                                 value="<?php echo $row2['username'] ?>"
-                                                                                required readonly> </div>
-                                                                        <div class=form-group row>
-                                                                            <label class="col-lg-5">סיסמה</label><input
-                                                                                type="password" name="password"
-                                                                                class="form-control round col-md-7"
-                                                                                style="display: inline-block"
-                                                                                value="<?php echo $row2['password'] ?>"
                                                                                 required readonly> </div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">אימייל</label><input
@@ -113,14 +96,8 @@ include ('Templates/menu.php');
                                                                                 required readonly></div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">מין</label>
-                                                                            <input type="radio"
-                                                                                style="display: inline-block"
-                                                                                name="gender" value="זכר" checked
-                                                                                required readonly><label> זכר</label>
-                                                                            <input type="radio"
-                                                                                style="display: inline-block"
-                                                                                name="gender" value="נקבה" checked
-                                                                                required readonly><label> נקבה</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="זכר" required <?php if (isset ($row2['gender']) && $row2['gender'] == "זכר" ) { echo 'checked';}?>> זכר</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required <?php if (isset ($row2['gender']) && $row2['gender'] == "נקבה" ) { echo 'checked';}?>> נקבה</label>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">תאריך
@@ -131,7 +108,7 @@ include ('Templates/menu.php');
                                                                                 value="<?php echo $row2['birthday'] ?>"
                                                                                 required readonly></div>
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם האב</label><input
+                                                                            <label class="col-lg-5"> שם ההורה</label><input
                                                                                 type="text"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
@@ -147,7 +124,7 @@ include ('Templates/menu.php');
                                                                                 value="<?php echo $row2['phone1'] ?>"
                                                                                 required readonly> </div>
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם האם</label><input
+                                                                            <label class="col-lg-5">שם ההורה</label><input
                                                                                 type="text"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
@@ -174,14 +151,14 @@ include ('Templates/menu.php');
                                                                             <label
                                                                                 class="col-lg-5">אלרגיות</label><textarea
                                                                                 class="form-control round col-md-7"
-                                                                                style="display: inline-block" readonly
+                                                                                style="display: inline-block; vertical-align: text-top;"" readonly
                                                                                 name="allergies"><?php echo $row2['allergies'] ?> </textarea>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label
                                                                                 class="col-lg-5">תרופות</label><textarea
                                                                                 class="form-control round col-md-7"
-                                                                                style="display: inline-block" readonly
+                                                                                style="display: inline-block; vertical-align: text-top;" readonly
                                                                                 name="medicines"><?php echo $row2['medicines'] ?></textarea>
                                                                         </div>
                                                                         <div class="form-actions center">
@@ -212,9 +189,9 @@ include ('Templates/menu.php');
         </div>
     </div>
 
-    <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

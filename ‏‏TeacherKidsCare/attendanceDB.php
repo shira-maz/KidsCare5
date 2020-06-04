@@ -1,8 +1,6 @@
-
 <?php
-include ('Templates/DB.php');
-
-                                
+include ('../DB/DB.php');
+                        
 $date1 =date("Y-m-d");
 $username1 = $_POST["username"];
 $q= "SELECT date, username, attendanceStatus from attendance WHERE date = '$date1' AND username = '$username1'";
@@ -63,8 +61,6 @@ else if ($_POST['action'] == 'X') {
             header("Location:attendanceList.php");
         }
 }
-
-
 
 ?>
                                

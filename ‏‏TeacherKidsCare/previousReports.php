@@ -1,22 +1,17 @@
 <?php
-include ('Templates/DB.php');
-include ('Templates/menu.php');
-include ('Templates/head.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+include ('menu.php');
 ?>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-<!-- BEGIN: Head-->
 
-
-<title>KidsCare-Registration</title>
+<title>KidsCare-Previous Reports</title>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
 
-
-  
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -25,8 +20,6 @@ include ('Templates/head.php');
                     <h3 class="content-header-title">צפייה בדוחות התפתחות </h3>
                 </div>
             </div>
-
-            
 
             <div class="content-body">
                 <section id="line-awesome-icons">
@@ -39,9 +32,7 @@ include ('Templates/head.php');
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -60,7 +51,8 @@ include ('Templates/head.php');
                                                     <div class="col-md-4 mt-4">
                                                         <div class="card profile-card-4">
                                                             <div class="card-body pt-5">
-                                                                <img alt="profile-image" class="profile"
+                                                             <a
+                                                                        href="previousDevelopmentalReport.php?username=<?= $row['username'] ?>">   <img alt="profile-image" class="profile"
                                                                     src="../uploads/<?= $row['fileToUpload'] ?>" />
                                                                 <h5 class="card-title text-center"> <a
                                                                         href="previousDevelopmentalReport.php?username=<?= $row['username'] ?>">
@@ -91,11 +83,10 @@ include ('Templates/head.php');
     </div>
 
 
-    <!-- END: Content-->
 
-    <?php 
-include ('Templates/footer.php');
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/footer.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 </body>

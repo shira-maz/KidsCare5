@@ -1,15 +1,13 @@
 
-
+<?php 
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+?>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
-<?php 
-include ('Templates/head.php');
-include ('Templates/DB.php');
 
-
-?>
 <style>
 #fadeout {
   opacity: 1;
@@ -27,7 +25,6 @@ body {
 </style>
 
 <title>KidsCare-Register</title>
-<script src="registrationFormValidation.js"></script>
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image " data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
     <div class="app-content content"  >
         <div class="content-wrapper">
@@ -40,14 +37,12 @@ body {
                                     <div class="text-center mb-1">
                                         <img style = " margin-bottom:5%" src="../app-assets/images/logo/logo.png" alt="branding logo">
                                     </div>
-                                  
-                                </div>
+                                 </div>
+
                                 <div class="card-content">
                                 <div class="row justify-content-md-center">
-                        <div class=" col-xl-12 col-lg-11 col-md-11">
-                            <div class="card">
-                           
-                         
+                                <div class=" col-xl-12 col-lg-11 col-md-11">
+                                <div class="card">
                                 <?php
                                 if(isset($_POST['search']))
                                 {
@@ -118,10 +113,10 @@ body {
                                 </div>                         		
                         </div>
                     </div>
-    <!-- END: Content-->
+
 
 <?php 
-include ('Templates/JS.php');
+include ('../GeneralTemplates/JS.php');
 ?>
 
 <script>
@@ -149,8 +144,6 @@ var timeLeft = 30;
       }
     }
 </script>
-
-
 
 </body>
 </html>

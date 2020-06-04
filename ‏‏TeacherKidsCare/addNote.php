@@ -1,19 +1,17 @@
 <?php
-include ('Templates/DB.php');
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
 $date1 =date("Y-m-d");
+ob_start();
 ?>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
-<?php 
-include 'Templates\head.php';
-?>
-<title>KidsCare-Register</title>
+<title>KidsCare-Add Note</title>
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click"
     data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -37,7 +35,7 @@ include 'Templates\head.php';
                                             <?php
                                    $sql = "INSERT INTO notes (title, text, date )
                                    VALUES ('".$_POST["title"]."', '".$_POST["text"]."', '$date1')";
-                                   header("Location:BulletinBoard.php");
+                                   header("Location:NotesT.php");
                                    if ($conn->query($sql)==false) {
                                        echo "התרחשה תקלה. המודעה לא התווספה, אנא נסי שנית ";
                                        $conn->error;
@@ -62,10 +60,9 @@ include 'Templates\head.php';
             </div>
         </div>
     </div>
-   <!-- END: Content-->
 
-   <?php 
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/JS.php');
 ?>
 </body>
 </html>

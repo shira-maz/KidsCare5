@@ -1,15 +1,14 @@
+<?php 
+include ('../DB/DB.php');
+include ('../GeneralTemplates/head.php');
+?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
-
-<?php 
-include ('Templates/head.php');
-?>
 <title>KidsCare-Register</title>
-
 
 <body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click"
     data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -31,7 +30,7 @@ include ('Templates/head.php');
                                     <div class="card-body">
                                         <h1 class="text-center">
                                             <?php
-                                            include ('Templates/DB.php');
+                                          
                                     if ($_POST['action'] == 'Approve') {
                                         $sql = "UPDATE `accounts` 
                                         SET 
@@ -79,10 +78,9 @@ include ('Templates/head.php');
             </div>
         </div>
     </div>
-   <!-- END: Content-->
 
-   <?php 
-include ('Templates/JS.php');
+<?php 
+include ('../GeneralTemplates/JS.php');
 ?>
 </body>
 </html>
