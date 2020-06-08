@@ -4,17 +4,17 @@ include ('../DB/DB.php');
 include ('../GeneralTemplates/head.php');
 include ('menu.php');
 
-$date1 =date("Y-m-d");
-if (isset($_POST['search'])) {
-    $date1 = $_POST['dates1'];
-}
-
     $query ="SELECT * FROM accounts WHERE username = '$username1'";
     mysqli_query($conn, $query) or die('Error querying database.');
     $result1 = mysqli_query($conn, $query);
     $row2 = mysqli_fetch_array($result1);
     
 ?>
+
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
+
 
 <style>
 td, th {
@@ -43,15 +43,10 @@ h5, p{
     display:block;
     text-align: center;
 }
+}
 </style>
 
-
-
-
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
 <title>KidsCare-Developmental Reports</title>
-
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
@@ -80,7 +75,6 @@ h5, p{
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
                                         </ul>
                                     </div>
@@ -90,10 +84,8 @@ h5, p{
                                     <div class="card-body">
                                         <section>
                                         <div class="text-center"                
-                                                
-                                            <div class="container">
-                                     
-                                                <div class="row">  
+                                             <div class="container">
+                                              <div class="row">  
                                     
                                         <?php   
                                         $qD= "SELECT * from  developmentalreport where username = '$username1'";

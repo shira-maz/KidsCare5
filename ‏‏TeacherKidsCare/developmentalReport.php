@@ -6,18 +6,15 @@ include ('menu.php');
 $date1 =date("Y-m-d");
 $username1 = $_GET["username"]; 
     $query ="SELECT * FROM accounts WHERE username = '$username1'";
-    mysqli_query($conn, $query) or die('Error querying database.');
-    $result1 = mysqli_query($conn, $query);
-    $row2 = mysqli_fetch_array($result1);
+    $res1 = $conn->query($query);
+    $row2 = $res1->fetch_assoc(); 
     
-
     $query1= "SELECT date FROM developmentalreport where username = '$username1' ORDER BY date DESC LIMIT 1";
-    $res1= $conn->query($query1);
-    $row3 = $res1->fetch_assoc();
+    $res2= $conn->query($query1);
+    $row3 = $res2->fetch_assoc();
 
-
-    $q1= "SELECT * FROM developmentalreport where username='$username1' and date = '$date1'";
-    $res3= $conn->query($q1);
+    $query2= "SELECT * FROM developmentalreport where username='$username1' and date = '$date1'";
+    $res3= $conn->query( $query2);
     $row4 = $res3->fetch_assoc();
 
 ?>
@@ -419,10 +416,12 @@ label{
                                 </div>
                             </div>
                         </div>
+                        
+                            <input type = "submit" value = "שלח דוח" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-9 mr-1 mb-1 " style="margin-top:5%; margin-right:10%;">                                   
+                        </form> 
                         </div>
                      
-                        <input type = "submit" value = "שלח דוח" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-8 mr-1 mb-1 " style="margin-top:5%; margin-right:10%;">                                   
-                        </form> 
+                        
                                                 </div>
                                             </div>
                                         </section>
