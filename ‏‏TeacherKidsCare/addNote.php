@@ -36,6 +36,7 @@ ob_start();
                                    $sql = "INSERT INTO notes (title, text, date )
                                    VALUES ('".$_POST["title"]."', '".$_POST["text"]."', '$date1')";
                                    header("Location:NotesT.php");
+
                                    if ($conn->query($sql)==false) {
                                        echo "התרחשה תקלה. המודעה לא התווספה, אנא נסי שנית ";
                                        $conn->error;
@@ -47,7 +48,7 @@ ob_start();
                                     ?>
                                         </h1>
                                         <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span><a
-                                                href="BulletinBoard.php" class="card-link">לחזרה ללוח המודעות</a></span></p>
+                                                href="NoteT.php" class="card-link">לחזרה ללוח המודעות</a></span></p>
                                     </div>
 
                                    

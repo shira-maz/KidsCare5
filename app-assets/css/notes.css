@@ -1,6 +1,6 @@
 
 .container {
-  padding: 16px;
+  padding: 11px;
 }
 /* The Modal (background) */
 .modal {
@@ -127,5 +127,12 @@
     position:relative;
     z-index:5;
   }
+
+  @media screen and (max-width: 922px) {
+.modal {
+  margin-right: 15%;
+  width: 70%;
+}
+}
 
  

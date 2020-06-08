@@ -78,7 +78,7 @@ function registrationFormValidation() {
   }
 
   if (parentName1.value === "") {
-    window.alert("אנא מלא את שם ההורה");
+    window.alert("אנא מלא את שם האב");
     parentName1.focus();
     return false;
   }
@@ -89,5 +89,15 @@ function registrationFormValidation() {
     return false;
   }
 
+  if (parentName2.value === "") {
+    window.alert("אנא מלא את שם האם");
+    parentName2.focus();
+    return false;
+  }
 
+  if (!phone2.value.match(/^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$/)) {
+    window.alert("אנא הקלד מספר פלאפון חוקי");
+    phone2.focus();
+    return false;
+  }
 }
