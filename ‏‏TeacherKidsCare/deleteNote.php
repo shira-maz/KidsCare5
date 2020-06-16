@@ -46,7 +46,7 @@ ob_start();
                                     ?>
                                         </h1>
                                         <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span><a
-                                                href="NoteT.php" class="card-link">לחזרה ללוח המודעות</a></span></p>
+                                                href="BulletinBoard.php" class="card-link">לחזרה ללוח המודעות</a></span></p>
                                     </div>
 
                                    

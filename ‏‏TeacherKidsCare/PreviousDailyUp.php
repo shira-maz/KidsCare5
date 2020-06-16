@@ -3,9 +3,11 @@ include ('../DB/DB.php');
 include ('../GeneralTemplates/head.php');
 include ('menu.php');
 $date1 =date("Y-m-d");
+$newDate = date("d-m-Y", strtotime($date1));
 
 if (isset($_POST['search'])) {
     $date1 = $_POST['dates1'];
+    $newDate = date("d-m-Y", strtotime($date1));
 }
 ?>
 
@@ -55,7 +57,7 @@ td, th {
                                        <div class="col-lg-12 col-xl-12 text-center" style="margin-bottom:10%" >
                                            <h3> אנא בחר תאריך </h3>
                                         <form method="post" >
-                                            <input type="date" name = "dates1" class="col-xs-4">
+                                            <input type="date" name = "dates1" placeholder="dd-mm-yyyy" class="col-xs-4">
                                             <button type = "submit" name="search"   style = "display:inline; line-height: 7.5px; padding:11px 15px 11px 15px; " class="btn btn-glow btn-bg-gradient-x-purple-blue col-xs-4"> בחר </button>
                                         </form>
                                    </div>
@@ -72,7 +74,7 @@ td, th {
 
                                            <?php
                                         if ($countD > 0) {?>
-                                         <h3 class = "text-center" > דיווח לתאריך  <?= $date1 ?> </h3>
+                                         <h3 class = "text-center" > דיווח לתאריך  <?= $newDate ?> </h3>
                                         <tr>
                                              
                                             <th>שם הילד</th>
@@ -150,6 +152,7 @@ td, th {
                                         ?>
                                         </table>
                                         </div>
+                                        
                                                 </div>
                                             </div>
                                             </div>

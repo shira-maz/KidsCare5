@@ -4,9 +4,11 @@ include ('../GeneralTemplates/head.php');
 include ('menu.php');
 
 $date1 =date("Y-m-d");
+$newDate = date("d-m-Y", strtotime($date1));
 
 if (isset($_POST['search'])) {
     $date1 = $_POST['dates1'];
+    $newDate = date("d-m-Y", strtotime($date1));
 }
 ?>
 
@@ -70,7 +72,7 @@ td, th {
                                            $countD = $resD->num_rows;
                                         if ($countD > 0) {?>
 
-                                       <h4 style ="margin-bottom:3%; color:black;  font-weight: bold;" > נכון לתאריך  <?= $date1 ?> </h4>
+                                       <h4 style ="margin-bottom:3%; color:black;  font-weight: bold;" > נכון לתאריך  <?=  $newDate ?> </h4>
                                       
                                            
                                         <?php 

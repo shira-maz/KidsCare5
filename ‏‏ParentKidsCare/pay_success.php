@@ -1,8 +1,8 @@
-
 <?php
+include ('../DB/DB.php');
 include ('../GeneralTemplates/head.php');
+include_once 'config.php';
 ?>
-
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">

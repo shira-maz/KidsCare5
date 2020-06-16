@@ -1,6 +1,5 @@
 
 <?php
-
 include ('../DB/DB.php');
 $username1 = $_SESSION["name"]; 
 $query ="SELECT * FROM accounts WHERE username = '$username1'";
@@ -8,7 +7,6 @@ mysqli_query($conn, $query) or die('Error querying database.');
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
 ?>
-
 
 
 <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">

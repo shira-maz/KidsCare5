@@ -87,7 +87,7 @@ $row = mysqli_fetch_array($result);
                                                                                 לידה</label><input type="date"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
-                                                                                name="birthday"
+                                                                                min="2017-01-01" max="2020-01-01" name="birthday"
                                                                                 value="<?php echo $row['birthday'] ?>"
                                                                                 required ></div>
                                                                         <div class=form-group row>

@@ -56,13 +56,17 @@ include ('menu.php');
                                                     $result1 = $conn->query($sql);
                                                     $conn->close();
                                                 if ($result1->num_rows > 0) {
-                                                    while ($row = $result1->fetch_assoc()) { ?>
+                                                    while ($row = $result1->fetch_assoc()) {
+                                                    
+                                                     $newDate = date("d-m-Y", strtotime($row['date']));
+                                                    
+                                                    ?>
                                                       <div class="col-sm-7 col-xs-5 col-md-6 col-xl-4 mt-3">
                                                             <ul class="ul-notes">
                                                             <li class="li-notes">
                                                                 <a class="a-notes" class="text-center">
                                                                 <h2 class="h2-notes text-center"> <?= $row['title'] ?></h2>
-                                                                <h6 class="date-notes text-center"><?= $row['date'] ?></h6>
+                                                                <h6 class="date-notes text-center"><?= $newDate ?></h6>
                                                                 <h6 class="h6-notes text-center"><?= $row['text'] ?></h6>
                                                             </a>
                                                             </li>

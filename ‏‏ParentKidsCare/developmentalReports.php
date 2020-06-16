@@ -4,17 +4,20 @@ include ('../DB/DB.php');
 include ('../GeneralTemplates/head.php');
 include ('menu.php');
 
+$date1 =date("Y-m-d");
+$newDate = date("d-m-Y", strtotime($date1));
+
+if (isset($_POST['search'])) {
+    $date1 = $_POST['dates1'];
+    $newDate = date("d-m-Y", strtotime($date1));
+}
+
     $query ="SELECT * FROM accounts WHERE username = '$username1'";
     mysqli_query($conn, $query) or die('Error querying database.');
     $result1 = mysqli_query($conn, $query);
     $row2 = mysqli_fetch_array($result1);
     
 ?>
-
-
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
-
 
 <style>
 td, th {
@@ -43,10 +46,15 @@ h5, p{
     display:block;
     text-align: center;
 }
-}
 </style>
 
+
+
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
 <title>KidsCare-Developmental Reports</title>
+
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
@@ -75,6 +83,7 @@ h5, p{
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
+                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
                                             <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
                                         </ul>
                                     </div>
@@ -84,8 +93,10 @@ h5, p{
                                     <div class="card-body">
                                         <section>
                                         <div class="text-center"                
-                                             <div class="container">
-                                              <div class="row">  
+                                                
+                                            <div class="container">
+                                     
+                                                <div class="row">  
                                     
                                         <?php   
                                         $qD= "SELECT * from  developmentalreport where username = '$username1'";
@@ -93,7 +104,10 @@ h5, p{
                                         $countD = $resD->num_rows;
                                         if ($countD > 0) {
                                             $i=1;
-                                            while ($row3D = $resD->fetch_assoc()) { ?>
+                                            while ($row3D = $resD->fetch_assoc()) { 
+                                            
+                                            $newDate = date("d-m-Y", strtotime($row3D['date']));
+                                            ?>
                                                                     <div class="col-lg-12 col-xl-12">
                                        
                                              <div id="accordion3" class="card-accordion">
@@ -101,7 +115,7 @@ h5, p{
                                 <div class="card">
                                         <div class="card-header" id="headingGOne">
                                             <button type='button' class="btn btn-link " style="font-size:18px; " data-toggle="collapse" data-target="<?php echo '#accordionC'.$i; ?>" aria-expanded="true" "<?php echo 'accordionC'.$i; ?>">
-                                            דוח לתאריך  <?= $row3D['date'] ?></button> 
+                                            דוח לתאריך  <?=$newDate ?></button> 
                                         </div>
                                         <div id="<?php echo 'accordionC'.$i; ?>" class="collapse " aria-labelledby="headingGOne" data-parent="<?php echo '#accordionC'.$i; ?>">
 
@@ -111,11 +125,11 @@ h5, p{
                                                                 <div class="card-body" style="background-color:LightCyan">
                                                                  <h5> <b>  מבינ/ה את התכנים הנלמדים בגן-  </b></h5>
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language1'] ?></p><br>                                                                 <br>
-                                                                <h5> <b>מבי/ה ועונה נכון על שאלות שנשאל-</b></h5>
+                                                                <h5> <b>מבינ/ה ועונה נכון על שאלות שנשאל-</b></h5>
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language2'] ?></p><br>                                                                   
                                                                 <h5> <b>מתאר/ת באופן מילולי תמונות שמוצגות לו- </b></h5>
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language3'] ?></p><br>                                                                 <br>
-                                                                <h5> <b>האם קיים חוסר שטף בדיבור (גמגום)?</b></h5>
+                                                                <h5> <b>האם קיים חוסר שטף בדיבור (גמגום)-</b></h5>
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language4'] ?></p><br>                                                                 </div>
                                                           
                                                                 <h4> תפקוד חברתי ותקשורתי </h4>

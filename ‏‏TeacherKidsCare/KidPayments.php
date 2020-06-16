@@ -14,6 +14,12 @@ $kidUser=$row2['username'];
 <html class="loading" lang="en" data-textdirection="rtl">
 <title>KidsCare-Kid Paynents</title>
 
+<style>
+td, th {
+   text-align: center;
+}
+</style>
+
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
     <div class="app-content content">
@@ -73,21 +79,23 @@ $kidUser=$row2['username'];
                                             
                                             <?php
                                             $total =0;
-                                            $query1 ="SELECT txnid, createdtime, payment_amount FROM payments WHERE custom = '$kidUser'";
+                                            $query1 ="SELECT * FROM payments WHERE username = '$kidUser'";
                                             $result3 = mysqli_query($conn, $query1);
-                                        $sumquery ="SELECT SUM(payment_amount) AS value_sum FROM payments WHERE custom = '$kidUser'";
+                                        $sumquery ="SELECT SUM(payment_gross) AS value_sum FROM payments WHERE username = '$kidUser'";
                                         mysqli_query($conn, $sumquery) or die('Error querying database.');
                                         $sumresult = mysqli_query($conn, $sumquery);
                                         $sumrow = mysqli_fetch_array($sumresult);    
                                             
                                             $num =1;
                                                 if ($result3->num_rows > 0) {
-                                                    while ($row = $result3->fetch_assoc()) { ?>
+                                                    while ($row = $result3->fetch_assoc()) { 
+                                                        $printdate =date("d-m-Y", strtotime($row['date']));
+                                                        ?>
                                                     <tr>
                                                     <td><?= $num++ ?></td>
-                                                    <td><?= $row['txnid'] ?></td>
-                                                        <td><?= $row['payment_amount'] ?></td>
-                                                        <td> <?= $row['createdtime'] ?>  </td>
+                                                    <td><?= $row['txn_id'] ?></td>
+                                                        <td><?= $row['payment_gross'] ?></td>
+                                                        <td> <?=  $printdate ?>  </td>
                                                       </tr>
                                                       
                                                 <?php }

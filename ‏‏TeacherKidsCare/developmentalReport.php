@@ -4,6 +4,8 @@ include ('../GeneralTemplates/head.php');
 include ('menu.php');
 
 $date1 =date("Y-m-d");
+$newDate = date("d-m-Y", strtotime($date1));
+
 $username1 = $_GET["username"]; 
     $query ="SELECT * FROM accounts WHERE username = '$username1'";
     $res1 = $conn->query($query);
@@ -97,7 +99,7 @@ label{
                                             echo " הדוח האחרון עבור ילד זה מולא היום <br/> הינך יכולה לבצע בו שינויים בעמוד זה. ";
                                             else if ($row3['date'] == null) {
                                             echo "לא מולאו דוחות עדיין";}
-                                            else echo "הדוח האחרון עבור ילד זה מולא בתאריך " . $row3['date']."<br>";
+                                            else echo "הדוח האחרון עבור ילד זה מולא בתאריך " .date("d-m-Y",strtotime( $row3['date']))."<br>";
                                             ?>
                                             </h4>
                                             <form method="post" action="developmentalReportDB.php" name="developmentalreport" >

@@ -3,6 +3,7 @@ include ('../DB/DB.php');
 include ('../GeneralTemplates/head.php');
 include ('menu.php');
 $date1 =date("Y-m-d");
+$newDate = date("d-m-Y", strtotime($date1));
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +91,7 @@ $date1 =date("Y-m-d");
                                            $countD = $resD->num_rows;
                                         if ($countD > 0) {?>
 
-                                       <h4 style ="margin-bottom:3%; color:black;  font-weight: bold;" > נכון לתאריך  <?= $date1 ?> </h4>
+                                       <h4 style ="margin-bottom:3%; color:black;  font-weight: bold;" > נכון לתאריך  <?= $newDate ?> </h4>
                                       
                                            
                                         <?php 
@@ -200,7 +201,7 @@ $date1 =date("Y-m-d");
                                                         
                                                             <a class="a-notes" style="background-color:LightCyan" >
                                                                 <h2 class="h2-notes text-center"> <?= $row['title'] ?></h2>
-                                                                <h6 class="date-notes text-center"><?= $row['date'] ?></h6>
+                                                                <h6 class="date-notes text-center"><?= date("d-m-Y", strtotime($row['date'])) ?></h6>
                                                                 <h6 class="h6-notes text-center"><?= $row['text'] ?></h6>
                                                             </a>
                                                             </li>

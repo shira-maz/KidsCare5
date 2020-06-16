@@ -82,14 +82,8 @@ $row2 = mysqli_fetch_array($result2);
                                                                                 required readonly></div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">מין</label>
-                                                                            <input type="radio"
-                                                                                style="display: inline-block"
-                                                                                name="gender" value="זכר" checked
-                                                                                required readonly><label> זכר</label>
-                                                                            <input type="radio"
-                                                                                style="display: inline-block"
-                                                                                name="gender" value="נקבה" checked
-                                                                                required readonly><label> נקבה</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="זכר" required <?php if (isset ($row2['gender']) && $row2['gender'] == "זכר" ) { echo 'checked';}?> Disabled> זכר</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required <?php if (isset ($row2['gender']) && $row2['gender'] == "נקבה" ) { echo 'checked';}?> Disabled> נקבה</label>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">תאריך
@@ -100,7 +94,7 @@ $row2 = mysqli_fetch_array($result2);
                                                                                 value="<?php echo $row2['birthday'] ?>"
                                                                                 required readonly></div>
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם האב</label><input
+                                                                            <label class="col-lg-5"> שם ההורה</label><input
                                                                                 type="text"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
@@ -116,7 +110,7 @@ $row2 = mysqli_fetch_array($result2);
                                                                                 value="<?php echo $row2['phone1'] ?>"
                                                                                 required readonly> </div>
                                                                         <div class=form-group row>
-                                                                            <label class="col-lg-5">שם האם</label><input
+                                                                            <label class="col-lg-5">שם ההורה</label><input
                                                                                 type="text"
                                                                                 class="form-control round col-md-7"
                                                                                 style="display: inline-block"
@@ -143,14 +137,14 @@ $row2 = mysqli_fetch_array($result2);
                                                                             <label
                                                                                 class="col-lg-5">אלרגיות</label><textarea
                                                                                 class="form-control round col-md-7"
-                                                                                readonly style="display: inline-block"
+                                                                                readonly style="display: inline-block; vertical-align: text-top;"
                                                                                 name="allergies"><?php echo $row2['allergies'] ?></textarea>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label
                                                                                 class="col-lg-5">תרופות</label><textarea
                                                                                 class="form-control round col-md-7"
-                                                                                readonly style="display: inline-block"
+                                                                                readonly style="display: inline-block; vertical-align: text-top;"
                                                                                 name="medicines"><?php echo $row2['medicines'] ?> </textarea>
                                                                         </div>
                                                                 </div>

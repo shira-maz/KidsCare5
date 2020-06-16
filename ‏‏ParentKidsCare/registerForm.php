@@ -56,7 +56,7 @@ include ('../GeneralTemplates/head.php');
                                 <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required ><label> נקבה</label>
                                 </div>
                                 <div class=form-group row>
-                                <label class="col-xl-3 required">תאריך לידה</label><input type="date" class="form-control round col-md-8" style ="display: inline-block" name="birthday" required ></div>
+                                <label class="col-xl-3 required">תאריך לידה</label><input type="date" class="form-control round col-md-8" style ="display: inline-block" min="2017-01-01" max="2020-01-01" name="birthday" required ></div>
                                 <div class=form-group row>	
                                 <label class="col-xl-3 required">שם ההורה</label><input type="text"  class="form-control round col-md-8" style ="display: inline-block" name="parentName1" required ></div>
                                 <div class=form-group row>

@@ -2,9 +2,9 @@
                                     session_start();
                                     error_reporting(0);
                                      $servername = "localhost";
-                                    $username = "isshiramt";
-                                    $password = "Aa123456";
-                                    $dbname = "isshiram_kidsCare";
+                                    $username = "root";
+                                    $password = ' ';
+                                    $dbname = "phplogin";
 
                                     $conn = new mysqli($servername, $username, $password, $dbname);
 

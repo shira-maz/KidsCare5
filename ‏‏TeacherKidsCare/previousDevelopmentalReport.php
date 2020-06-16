@@ -5,8 +5,11 @@ include ('../GeneralTemplates/head.php');
 include ('menu.php');
 
 $date1 =date("Y-m-d");
+$newDate = date("d-m-Y", strtotime($date1));
+
 if (isset($_POST['search'])) {
     $date1 = $_POST['dates1'];
+    $newDate = date("d-m-Y", strtotime($date1));
 }
 
 $username1 = $_GET["username"]; 
@@ -122,7 +125,11 @@ h5, p{
 
                                         if ($countD > 0) {
                                             $i=1;
-                                            while ($row3D = $resD->fetch_assoc()) { ?>
+                                            while ($row3D = $resD->fetch_assoc()) {
+                                            
+                                            $newDate = date("d-m-Y", strtotime($row3D['date']));
+                                            
+                                            ?>
                                                                     <div class="col-lg-12 col-xl-12">
 
                                              <div id="accordion3" class="card-accordion">
@@ -130,7 +137,7 @@ h5, p{
                                 <div class="card">
                                         <div class="card-header" id="headingGOne">
                                             <button type='button' class="btn btn-link " style="font-size:18px; " data-toggle="collapse" data-target=" <?php echo '#accordionC'.$i; ?>" aria-expanded="true" aria-controls="<?php echo 'accordionC'.$i; ?>">
-                                            דוח לתאריך  <?= $row3D['date'] ?></button> 
+                                            דוח לתאריך  <?=$newDate ?></button> 
                                         </div>
                                         <div id="<?php echo 'accordionC'.$i; ?>" class="collapse" aria-labelledby="headingGOne" data-parent= <?php echo '#accordionC'.$i; ?>>
 
@@ -144,7 +151,7 @@ h5, p{
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language2'] ?></p><br>                                                                   
                                                                 <h5> <b>מתאר/ת באופן מילולי תמונות שמוצגות לו- </b></h5>
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language3'] ?></p><br>                                                                 <br>
-                                                                <h5> <b>האם קיים חוסר שטף בדיבור (גמגום)?</b></h5>
+                                                                <h5> <b>האם קיים חוסר שטף בדיבור (גמגום)-</b></h5>
                                                                 <p class="media-heading text-bold-700"><?php echo $row3D['Language4'] ?></p><br>                                                                 </div>
                                                           
                                                                 <h4> תפקוד חברתי ותקשורתי </h4>

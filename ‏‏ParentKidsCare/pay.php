@@ -1,14 +1,20 @@
-
-<?php 
+<?php
 include ('../DB/DB.php');
 include ('../GeneralTemplates/head.php');
 include ('menu.php');
+include_once 'config.php';
 ?>
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 
 <title>KidsCare-Pay</title>
+
+<style>
+td, th {
+   text-align: center;
+}
+</style>
 
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
    
@@ -40,9 +46,9 @@ include ('menu.php');
                                 <div class="card-body">
 	                                    <section>
 										<div class="container"> 
-                                          <?php
+                                        <?php
                                         $total = 20000;
-                                        $sumquery ="SELECT SUM(payment_amount) AS value_sum FROM payments WHERE custom = '$username1'";
+                                        $sumquery ="SELECT SUM(payment_gross) AS value_sum FROM payments WHERE username = '$username1'";
                                         mysqli_query($conn, $sumquery) or die('Error querying database.');
                                         $sumresult = mysqli_query($conn, $sumquery);
                                         $sumrow = mysqli_fetch_array($sumresult);
@@ -51,7 +57,7 @@ include ('menu.php');
                                         $nowtotal =  $total - $sumrow['value_sum'];
                                         $paymentsnum =10;
                                         $splittotal = $total/$paymentsnum;
-                                        $countquery ="SELECT COUNT(id) AS value_count FROM payments WHERE custom = '$username1'";
+                                        $countquery ="SELECT COUNT(payment_id) AS value_count FROM payments WHERE username = '$username1'";
                                         mysqli_query($conn, $countquery) or die('Error querying database.');
                                         $countresult = mysqli_query($conn, $countquery);
                                         $countrow = mysqli_fetch_array($countresult);
@@ -60,7 +66,7 @@ include ('menu.php');
                                         ?>
                                         
                                         <h4 class = "text-center">
-                                        הורה יקר, התשלום לגן מחולק לעשרה תשלומים שווים בסך <?=  $splittotal ?> לכל תשלום. <br><br>
+                                        הורה יקר, התשלום לגן מחולק לעשרה תשלומים שווים בסך ₪<?=  $splittotal ?> לכל תשלום. <br><br>
 
                                         <?php 
                                         if ( $count>0 ) {
@@ -80,25 +86,37 @@ include ('menu.php');
                                         </h4>
                                         
 
-                                          <form class="paypal" action="payments.php" method="post" id="paypal_form">
-                                          <input type="hidden" name="cmd" value="_xclick" />
-                                          <input type="hidden" name="no_note" value="1" />
-                                          <input type="hidden" name="lc" value="US" />
-                                          <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-                                          <input type="hidden" name="first_name" value="Test" />
-                                          <input type="hidden" name="last_name" value="User" />
-                                          <input type="hidden" name="payer_email" value="gm_1231902590_per@paypal.com" />
-                                          <input type="hidden" name="item_number" value="111" />
-                                          <input type="submit" name="submit"   class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-6 mr-1 mb-1" style= "margin:2% 25%" value="שלם עכשיו בPayPal"/>
-                                          </form>
-
-        
+				
+				<!-- PayPal payment form for displaying the buy button -->
+				<form action="<?php echo PAYPAL_URL; ?>" method="post">
+					<!-- Identify your business so that you can collect the payments. -->
+					<input type="hidden" name="business" value="<?php echo PAYPAL_ID; ?>">
+					
+					<!-- Specify a Buy Now button. -->
+					<input type="hidden" name="cmd" value="_xclick">
+					
+					<!-- Specify details about the item that buyers will purchase. -->
+					<input type="hidden" name="item_name" value="Monthly Payment">
+					<input type="hidden" name="item_number" value="111">
+					<input type="hidden" name="amount" value="2000">
+					<input type="hidden" name="currency_code" value="ILS">
+					<input type="hidden" name="custom" value= "<?php echo  $username1 ?>" >
+					
+					<!-- Specify URLs -->
+					<input type="hidden" name="return" value="<?php echo PAYPAL_RETURN_URL; ?>">
+					<input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>">
+					<input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">
+					
+					<!-- Display the payment button. -->
+					<input  type="submit" name="submit"   class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-6 mr-1 mb-1" style= "margin:2% 25%" value="שלם עכשיו בPayPal" src="https://www.paypalobjects.com/he_IL/IL/i/btn/btn_buynowCC_LG.gif" >
+				</form>
+			
                                         </div>
                                     </section>
                                    </div>
                                 </div>
                             </div>
-
+                            
 
                             <div class="card" style = "margin-top:4%">
                             <div class="card-header">
@@ -125,16 +143,19 @@ include ('menu.php');
                                                 <th>תאריך תשלום</th>
                                             </tr>
                                             <?php
-                                            $query1 ="SELECT txnid, createdtime, payment_amount FROM payments WHERE custom = '$username1'";
+                                            $query1 ="SELECT * FROM payments WHERE username = '$username1'";
                                             $result3 = mysqli_query($conn, $query1);
+                                            
                                             $num =1;
                                                 if ($result3->num_rows > 0) {
-                                                    while ($row = $result3->fetch_assoc()) { ?>
+                                                    while ($row = $result3->fetch_assoc()) { 
+                                                    $printdate =date("d-m-Y", strtotime($row['date']));
+                                                   ?>
                                                     <tr>
                                                     <td><?= $num++ ?></td>
-                                                    <td><?= $row['txnid'] ?></td>
-                                                        <td><?= $row['payment_amount'] ?></td>
-                                                        <td> <?= $row['createdtime'] ?>  </td>
+                                                    <td><?= $row['txn_id'] ?></td>
+                                                        <td><?= $row['payment_gross'] ?></td>
+                                                        <td> <?= $printdate ?>  </td>
                                                       </tr>
                                                 
 
@@ -169,5 +190,3 @@ include ('../GeneralTemplates/JS.php');
 </body>
 
 </html>
-
-

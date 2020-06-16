@@ -13,7 +13,7 @@ $row2 = mysqli_fetch_array($result1);
 <html class="loading" lang="en" data-textdirection="rtl">
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu"
     data-color="bg-gradient-x-purple-blue" data-col="2-columns">
- 
+ <title>KidsCare-Kid Registration</title>
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -66,7 +66,7 @@ $row2 = mysqli_fetch_array($result1);
                                                                         <label class="col-lg-5">שם
                                                                                 משתמש</label><input type="text"
                                                                                 class="form-control round col-md-7"
-                                                                                style="display: inline-block; border: solid 1px black;"
+                                                                                style="display: inline-block;"
                                                                                 name="username"
                                                                                 value="<?php echo $row2['username'] ?>"
                                                                                 required readonly> </div>
@@ -96,8 +96,8 @@ $row2 = mysqli_fetch_array($result1);
                                                                                 required readonly></div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">מין</label>
-                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="זכר" required <?php if (isset ($row2['gender']) && $row2['gender'] == "זכר" ) { echo 'checked';}?>> זכר</label>
-                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required <?php if (isset ($row2['gender']) && $row2['gender'] == "נקבה" ) { echo 'checked';}?>> נקבה</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="זכר" required <?php if (isset ($row2['gender']) && $row2['gender'] == "זכר" ) { echo 'checked';}?> Disabled> זכר</label>
+                                                                            <label > <input type="radio"  style ="display: inline-block" name="gender" value="נקבה" required <?php if (isset ($row2['gender']) && $row2['gender'] == "נקבה" ) { echo 'checked';}?> Disabled> נקבה</label>
                                                                         </div>
                                                                         <div class=form-group row>
                                                                             <label class="col-lg-5">תאריך
