@@ -43,7 +43,7 @@ include ('../GeneralTemplates/head.php');
                                      <button type="submit" id="myBtn" name="search" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">הצג סיסמה</button>
                                   </div>
                                   <div class="form-group text-center">
-                                  <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span>לחזרה לדף ההתחברות <a href="index.php" class="card-link">לחץ כאן</a></span></p>
+                                     <p class="card-subtitle text-muted text-center font-small-6 my-1"><span>שכחת את הסיסמה? <a href="passwordReset.php" class="card-link">לחץ כאן</a></span></p>
                                   </div>
                                   
                                 </div>                         		

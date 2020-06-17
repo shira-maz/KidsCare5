@@ -13,7 +13,7 @@ include ('../GeneralTemplates/head.php');
             <div class="content-body" >
                 <section class="flexbox-container">
                     <div class="col-12 d-flex align-items-center justify-content-center">
-                        <div class="col-lg-5 col-md-9 col-11 box-shadow-2 p-0">
+                        <div class="col-lg-5 col-md-9 col-12 box-shadow-2 p-0">
                             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                                 <div class="card-header border-0">
                                     <div class="text-center mb-1">
@@ -38,12 +38,12 @@ include ('../GeneralTemplates/head.php');
                                 <label class="col-xl-3">ת.ז</label><input type="text" class="form-control round col-md-8" style ="display: inline-block" name="idNum" required ></div>
                                 
                                 <div class="form-group text-center">
-                                     <button type="submit" id="myBtn" name="search" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">הצג את סיסמתי</button>
+                                     <button type="submit" id="myBtn" name="search" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">הצג סיסמה</button>
                                   </div>
                                   <div class="form-group text-center">
-                                  <p class="card-subtitle text-muted text-center font-small-6 mx-2 my-1"><span>לחזרה לדף ההתחברות <a href="index.php" class="card-link">לחץ כאן</a></span></p>
-                                  </div>
-                                  
+                                     <p class="card-subtitle text-muted text-center font-small-6  my-1"><span>שכחת את הסיסמה? <a href="passwordReset.php" class="card-link">לחץ כאן</a></span></p>
+
+                                   </div>
                                 </div>                         		
                             </form>
                         </div>

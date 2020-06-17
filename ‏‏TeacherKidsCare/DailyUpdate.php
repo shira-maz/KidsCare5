@@ -99,7 +99,7 @@ $date1 =date("Y-m-d");
                                                                 $i++;
                                                             ?>
 
-                         <div class="col-lg-12 col-xl-10" style ="margin:auto;">
+                         <div class="col-lg-12 col-xl-12" style ="margin:auto;">
                             <div id="accordion3" class="card-accordion">
                                 <div class="card collapse-icon accordion-icon-rotate">
                                     <div class="card">
@@ -165,7 +165,7 @@ $date1 =date("Y-m-d");
                             <?php } ?>
                            
                                                 </div>
-                                                <input type="button" onclick="location.href = 'home.php';" value = "חזרה לדף הבית" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-6 mr-1 mb-1" style ="margin-right:25%; margin-top:3%;"> 
+                                                <input type="button" onclick="location.href = 'home.php';" value = "חזרה לדף הבית" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-7 mr-1 mb-1" style ="margin-right:25%; margin-top:3%;"> 
                                             </div>
                                         </section>
                                     </div>

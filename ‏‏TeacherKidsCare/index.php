@@ -17,7 +17,7 @@ include ('../GeneralTemplates/head.php');
             <div class="content-body">
                 <section class="flexbox-container">
                     <div class="col-12 d-flex align-items-center justify-content-center">
-                        <div class="col-lg-4 col-md-6 col-10 box-shadow-2 p-0">
+                        <div class="col-lg-4 col-md-6 col-12 box-shadow-2 p-0">
                             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                                 <div class="card-header border-0">
                                     <div class="text-center mb-1">
