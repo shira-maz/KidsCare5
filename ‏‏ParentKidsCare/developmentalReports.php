@@ -115,7 +115,7 @@ h5, p{
                                 <div class="card">
                                         <div class="card-header" id="headingGOne">
                                             <button type='button' class="btn btn-link " style="font-size:18px; " data-toggle="collapse" data-target="<?php echo '#accordionC'.$i; ?>" aria-expanded="true" "<?php echo 'accordionC'.$i; ?>">
-                                            דוח לתאריך  <?=$newDate ?></button> 
+                                            דוח ל- <?=$newDate ?></button> 
                                         </div>
                                         <div id="<?php echo 'accordionC'.$i; ?>" class="collapse " aria-labelledby="headingGOne" data-parent="<?php echo '#accordionC'.$i; ?>">
 

@@ -111,11 +111,15 @@ h5, p{
                                                                     </div>
                                                                    </section>
                                                                     </div>
-                                <div class="card-content collapse show">
+                                                                    </div>
+                              <div class="card-content collapse show">
                                     <div class="card-body">
                                         <section>
-                                            <div class="text-center container">
-                                                <div class="row">
+                                        <div class="text-center"                
+                                                
+                                            <div class="container">
+                                     
+                                                <div class="row">  
                     
                                       
                                         <?php   
@@ -137,7 +141,7 @@ h5, p{
                                 <div class="card">
                                         <div class="card-header" id="headingGOne">
                                             <button type='button' class="btn btn-link " style="font-size:18px; " data-toggle="collapse" data-target=" <?php echo '#accordionC'.$i; ?>" aria-expanded="true" aria-controls="<?php echo 'accordionC'.$i; ?>">
-                                            דוח לתאריך  <?=$newDate ?></button> 
+                                            דוח ל-  <?=$newDate ?></button> 
                                         </div>
                                         <div id="<?php echo 'accordionC'.$i; ?>" class="collapse" aria-labelledby="headingGOne" data-parent= <?php echo '#accordionC'.$i; ?>>
 

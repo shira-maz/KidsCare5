@@ -10,6 +10,8 @@ function registrationFormValidation() {
   var parentName2 = document.accounts.parentName2;
   var phone2 = document.accounts.phone2;
   var letters = /^[0-9a-zA-Z]+$/;
+  var regex="^[\u0590-\u05FF ]+$";
+
 
   if (username.value === "") {
     window.alert("אנא מלא את שם המשתמש");
@@ -65,6 +67,14 @@ function registrationFormValidation() {
     return false;
   }
 
+    if (!fullName.value.match(regex))
+    {
+         window.alert("אנא הכנס אותיות בלבד");
+         fullName.focus();
+        return false;
+    }
+  
+
   if (!idNum.value.match(/^[0-9]{9}$/)) {
     window.alert(" אנא מלא את תעודת הזהות של ילדך באופן חוקי");
     idNum.focus();
@@ -78,26 +88,41 @@ function registrationFormValidation() {
   }
 
   if (parentName1.value === "") {
-    window.alert("אנא מלא את שם האב");
+    window.alert("אנא מלא את שם ההורה");
     parentName1.focus();
     return false;
   }
+  
+     if (!parentName1.value.match(regex))
+    {
+         window.alert("אנא הכנס אותיות בלבד");
+         parentName1.focus();
+        return false;
+    }
+
 
   if (!phone1.value.match(/^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$/)) {
     window.alert("אנא הקלד מספר פלאפון חוקי");
     phone1.focus();
     return false;
   }
+  
+if (parentName2.value !== ""){
+     if (!parentName2.value.match(regex))
+    {
+         window.alert("אנא הכנס אותיות בלבד");
+         parentName2.focus();
+        return false;
+    }
+}
 
-  if (parentName2.value === "") {
-    window.alert("אנא מלא את שם האם");
-    parentName2.focus();
-    return false;
-  }
-
-  if (!phone2.value.match(/^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$/)) {
+if (phone2.value !== ""){
+      if (!phone2.value.match(/^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$/)) {
     window.alert("אנא הקלד מספר פלאפון חוקי");
     phone2.focus();
     return false;
   }
+}
+ 
+  
 }

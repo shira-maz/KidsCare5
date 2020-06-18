@@ -45,8 +45,8 @@ $newDate = date("d-m-Y", strtotime($date1));
                                                 אנו שמחות שבחרת בנו להיות האחראיות על טיפול וצמיחת ילדך.
                                                 <br> <br>
                                             הרגש חופשי לפנות אלינו בכל שאלה! 
-                                            <br>ליצירת קשר: 08-9502524<br>
-                                  <br>  חנה ויעל<br>
+                                            <br>ליצירת קשר:<br> 08-9502524<br>
+                                  <br>  חנה וגלי<br>
                                   
                                     </h3>
                                              </div>
@@ -182,10 +182,7 @@ $newDate = date("d-m-Y", strtotime($date1));
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="card-content collapse show">
-                                    <div class="card-body">
-                                        <section>
-                                            <div class="container">
+                
                                                 <div class="row">
                                                     <?php
                                                   
@@ -195,7 +192,7 @@ $newDate = date("d-m-Y", strtotime($date1));
                                                 if ($result1->num_rows > 0) {
                                                     while ($row = $result1->fetch_assoc()) { ?>
 
-                                                      <div class="col-sm-7 col-xs-5 col-md-6 col-xl-4 mt-3">
+                                                      <div class="col-sm-7 col-xs-5 col-xl-4 mt-3">
                                                         <ul class="ul-notes">
                                                             <li class="li-notes">
                                                         

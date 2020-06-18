@@ -1,5 +1,5 @@
-
 <?php
+session_start();
 include ('../DB/DB.php');
 $username1 = $_SESSION["name"]; 
 $query ="SELECT * FROM accountsstaff WHERE username = '$username1'";
@@ -25,7 +25,7 @@ $row = mysqli_fetch_array($result);
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right"><a class="dropdown-item" href="#"><span class="avatar avatar-online"><img style = "width:50px; height:40px;"  src="../uploads/<?= $row['fileToUpload'] ?>" alt="avatar"><span class="user-name text-bold-700 ml-1"><?= $row['fullName'] ?></span></span></a>
                                  
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="ft-power"></i> התנתק</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="../GeneralTemplates/logout.php"><i class="ft-power"></i> התנתק</a>
                                 </div>
                             </div>
                         </li>

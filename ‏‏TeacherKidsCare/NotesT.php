@@ -61,7 +61,7 @@ include ('menu.php');
                                                      $newDate = date("d-m-Y", strtotime($row['date']));
                                                     
                                                     ?>
-                                                      <div class="col-sm-7 col-xs-5 col-md-6 col-xl-4 mt-3">
+                                                      <div class=" col-sm-7 col-xs-5 col-md-6 col-xl-4 mt-3">
                                                             <ul class="ul-notes">
                                                             <li class="li-notes">
                                                                 <a class="a-notes" class="text-center">

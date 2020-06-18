@@ -70,7 +70,7 @@ td, th {
 
                                         <?php 
                                         if ( $count>0 ) {
-                                            echo nl2br("עד כה, שולם לגן $paid ₪ \n ב-  $count תשלומים\n");
+                                            echo nl2br("עד כה, \nשולם לגן $paid ₪ \n ב-  $count תשלומים\n");
 
                                         }
 
@@ -108,7 +108,7 @@ td, th {
 					<input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">
 					
 					<!-- Display the payment button. -->
-					<input  type="submit" name="submit"   class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-6 mr-1 mb-1" style= "margin:2% 25%" value="שלם עכשיו בPayPal" src="https://www.paypalobjects.com/he_IL/IL/i/btn/btn_buynowCC_LG.gif" >
+					<input  type="submit" name="submit"   class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-9 mr-1 mb-1" style= "margin:2% 12%" value="שלם עכשיו בPayPal" src="https://www.paypalobjects.com/he_IL/IL/i/btn/btn_buynowCC_LG.gif" >
 				</form>
 			
                                         </div>
